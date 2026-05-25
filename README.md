@@ -1,4 +1,5 @@
-# Sigma Contable# Libro Contable - Aplicación de Escritorio en C++
+# Sigma Contable
+# Libro Contable - Aplicación de Escritorio en C++
 
 Aplicación de escritorio desarrollada en C++ para la gestión de un libro contable simple y eficiente. El proyecto utiliza SQLite3 como motor de base de datos y está orientado a ofrecer una solución liviana, rápida y fácil de mantener para pequeños negocios, emprendimientos o uso personal.
 
