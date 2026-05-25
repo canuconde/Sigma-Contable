@@ -12,6 +12,7 @@ Aplicación de escritorio desarrollada en C++ para la gestión de un libro conta
 * Persistencia de datos rápida y liviana.
 * Arquitectura organizada utilizando clases y DAO.
 * Proyecto portable y de bajo consumo de recursos.
+* Multiplataforma (Windows / Linux)
 
 ## Tecnologías utilizadas
 
