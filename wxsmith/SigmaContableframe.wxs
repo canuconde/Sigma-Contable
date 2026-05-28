@@ -16,7 +16,9 @@
 					<orient>wxVERTICAL</orient>
 					<object class="sizeritem">
 						<object class="wxButton" name="ID_BUTTON1" variable="Button1" member="yes">
-							<label>Label</label>
+							<label>Libro Diario</label>
+							<style>wxBORDER_NONE</style>
+							<handler function="OnButton1Click" entry="EVT_BUTTON" />
 						</object>
 						<flag>wxALL|wxEXPAND</flag>
 						<border>5</border>
@@ -24,7 +26,9 @@
 					</object>
 					<object class="sizeritem">
 						<object class="wxButton" name="ID_BUTTON2" variable="Button2" member="yes">
-							<label>Label</label>
+							<label>Libro Mayor</label>
+							<style>wxBORDER_NONE</style>
+							<handler function="OnButton2Click" entry="EVT_BUTTON" />
 						</object>
 						<flag>wxALL|wxEXPAND</flag>
 						<border>5</border>
@@ -94,5 +98,6 @@
 				<bitmap stock_id="wxART_NEW" stock_client="wxART_TOOLBAR" />
 			</object>
 		</object>
+		<object class="wxHtmlEasyPrinting" variable="HtmlEasyPrinting1" member="yes" />
 	</object>
 </wxsmith>

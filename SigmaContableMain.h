@@ -9,10 +9,11 @@
 
 #ifndef SIGMACONTABLEMAIN_H
 #define SIGMACONTABLEMAIN_H
-
+#include "LibroDiarioPanel.h"
 //(*Headers(SigmaContableFrame)
 #include <wx/button.h>
 #include <wx/frame.h>
+#include <wx/html/htmprint.h>
 #include <wx/menu.h>
 #include <wx/msgdlg.h>
 #include <wx/notebook.h>
@@ -36,12 +37,15 @@ public:
 
     SigmaContableFrame(wxWindow* parent,wxWindowID id = -1);
     virtual ~SigmaContableFrame();
+    LibroDiarioPanel* libro;
 
 private:
 
     //(*Handlers(SigmaContableFrame)
     void OnQuit(wxCommandEvent& event);
     void OnAbout(wxCommandEvent& event);
+    void OnButton1Click(wxCommandEvent& event);
+    void OnButton2Click(wxCommandEvent& event);
     //*)
 
     //(*Identifiers(SigmaContableFrame)
@@ -62,6 +66,7 @@ private:
     //(*Declarations(SigmaContableFrame)
     wxButton* Button1;
     wxButton* Button2;
+    wxHtmlEasyPrinting* HtmlEasyPrinting1;
     wxMenu* Menu3;
     wxMenu* Menu4;
     wxMenu* Menu5;

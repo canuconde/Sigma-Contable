@@ -8,6 +8,7 @@
  **************************************************************/
 
 #include "SigmaContableMain.h"
+
 #include <wx/msgdlg.h>
 
 //(*InternalHeaders(SigmaContableFrame)
@@ -90,11 +91,11 @@ SigmaContableFrame::SigmaContableFrame(wxWindow* parent,wxWindowID id)
     SplitterWindow1->SetSashGravity(0.5);
     Panel1 = new wxPanel(SplitterWindow1, ID_PANEL1, wxPoint(234,175), wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL1"));
     BoxSizer1 = new wxBoxSizer(wxVERTICAL);
-    Button1 = new wxButton(Panel1, ID_BUTTON1, _("Label"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON1"));
+    Button1 = new wxButton(Panel1, ID_BUTTON1, _("Libro Diario"), wxDefaultPosition, wxDefaultSize, wxBORDER_NONE, wxDefaultValidator, _T("ID_BUTTON1"));
     BoxSizer1->Add(Button1, 1, wxALL|wxEXPAND, 5);
-    Button2 = new wxButton(Panel1, ID_BUTTON2, _("Label"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON2"));
+    Button2 = new wxButton(Panel1, ID_BUTTON2, _("Libro Mayor"), wxDefaultPosition, wxDefaultSize, wxBORDER_NONE, wxDefaultValidator, _T("ID_BUTTON2"));
     BoxSizer1->Add(Button2, 1, wxALL|wxEXPAND, 5);
-    BoxSizer1->Add(0,0,10, wxALL|wxEXPAND, 5);
+    BoxSizer1->Add(-1,-1,10, wxALL|wxEXPAND, 5);
     Panel1->SetSizer(BoxSizer1);
     Panel2 = new wxPanel(SplitterWindow1, ID_PANEL2, wxPoint(152,176), wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL2"));
     BoxSizer2 = new wxBoxSizer(wxHORIZONTAL);
@@ -130,7 +131,10 @@ SigmaContableFrame::SigmaContableFrame(wxWindow* parent,wxWindowID id)
     ToolBarItem1 = ToolBar1->AddTool(ID_TOOLBARITEM1, _("Nuevo"), wxArtProvider::GetBitmap(wxART_MAKE_ART_ID_FROM_STR(_T("wxART_NEW")),wxART_TOOLBAR), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
     ToolBar1->Realize();
     SetToolBar(ToolBar1);
+    HtmlEasyPrinting1 = new wxHtmlEasyPrinting(_T("wxHtmlEasyPrinting"), this);
 
+    Connect(ID_BUTTON1, wxEVT_COMMAND_BUTTON_CLICKED, (wxObjectEventFunction)&SigmaContableFrame::OnButton1Click);
+    Connect(ID_BUTTON2, wxEVT_COMMAND_BUTTON_CLICKED, (wxObjectEventFunction)&SigmaContableFrame::OnButton2Click);
     Connect(idMenuQuit, wxEVT_COMMAND_MENU_SELECTED, (wxObjectEventFunction)&SigmaContableFrame::OnQuit);
     Connect(idMenuAbout, wxEVT_COMMAND_MENU_SELECTED, (wxObjectEventFunction)&SigmaContableFrame::OnAbout);
     //*)
@@ -154,4 +158,25 @@ void SigmaContableFrame::OnAbout(wxCommandEvent& event)
     //wxMessageBox(msg, _("Welcome to.. ."));
 
     this->MessageDialog1->ShowModal();
+}
+
+void SigmaContableFrame::OnButton1Click(wxCommandEvent& event)
+{
+    //Notebook1->DeleteAllPages();
+    libro = new LibroDiarioPanel(Notebook1,wxID_ANY,wxDefaultPosition,wxDefaultSize);
+    Notebook1->AddPage(libro,"Libro Diario",true);
+    // libro->ListCtrl1->EnableAlternateRowColours(true);
+    //libro->ListCtrl1->InsertItem(1,"go",1);
+   // Notebook1->Show(true);
+
+}
+
+
+
+void SigmaContableFrame::OnButton2Click(wxCommandEvent& event)
+{
+    libro->ListCtrl1->InsertItem(0,"uno");
+    libro->ListCtrl1->SetItem(0,2,"dos");
+    libro->ListCtrl1->SetItemBackgroundColour(0,100);
+    //libro->ListCtrl1->EnableAlternateRowColours(true);
 }
