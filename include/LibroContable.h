@@ -17,7 +17,7 @@ class LibroContable
         std::vector<Cuenta*> cuentas;
         std::vector<Registro*> registros;
         std::vector<Asiento*> asientos;
-
+        std::string getNombreCuenta(int cuentaId);
     protected:
 
     private:

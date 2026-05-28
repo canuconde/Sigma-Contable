@@ -218,7 +218,7 @@ void SigmaContableFrame::OnButton1Click(wxCommandEvent& event)
 
         libro->ListCtrl1->SetItem(fila,1,std::to_string(r->getCuentaId()));
         libro->ListCtrl1->SetItem(fila,2,std::to_string(r->getId()));
-        libro->ListCtrl1->SetItem(fila,1,std::to_string(r->getCuentaId()));
+        libro->ListCtrl1->SetItem(fila,3,lContable->getNombreCuenta(r->getCuentaId()));
         libro->ListCtrl1->SetItem(fila,4,r->getNotas());
         libro->ListCtrl1->SetItem(fila,5,std::to_string(r->getDebe()));
         libro->ListCtrl1->SetItem(fila,6,std::to_string(r->getHaber()));

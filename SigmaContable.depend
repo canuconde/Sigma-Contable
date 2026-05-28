@@ -1432,7 +1432,7 @@
 
 1765945870 /usr/include/wx-3.2/wx/gtk/toolbar.h
 
-1780002712 source:/home/canu/SigmaContable/SigmaContableMain.cpp
+1780009637 source:/home/canu/SigmaContable/SigmaContableMain.cpp
 	"SigmaContableMain.h"
 	<vector>
 	<wx/msgdlg.h>
@@ -1791,7 +1791,7 @@
 1779995095 /home/canu/SigmaContable/include/RegistroDAO.h
 	<vector>
 
-1779999545 source:/home/canu/SigmaContable/src/LibroContable.cpp
+1780009664 source:/home/canu/SigmaContable/src/LibroContable.cpp
 	"LibroContable.h"
 	"Database.h"
 	"Registro.h"
@@ -1801,7 +1801,7 @@
 	"CuentaDAO.h"
 	"AsientoDAO.h"
 
-1780004000 /home/canu/SigmaContable/include/LibroContable.h
+1780009452 /home/canu/SigmaContable/include/LibroContable.h
 	<string>
 	<vector>
 	"Registro.h"

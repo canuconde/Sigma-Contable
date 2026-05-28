@@ -22,3 +22,9 @@ LibroContable::~LibroContable()
 {
     //dtor
 }
+
+std::string LibroContable::getNombreCuenta(int cuentaId){
+    for(Cuenta* c : cuentas){
+        if(c->getId()==cuentaId) return c->getNombre();
+    }
+}
