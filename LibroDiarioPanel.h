@@ -21,7 +21,7 @@ class LibroDiarioPanel: public wxPanel
         //(*Declarations(LibroDiarioPanel)
         wxDatePickerCtrl* DatePickerCtrl1;
         wxDatePickerCtrl* DatePickerCtrl2;
-        wxListCtrl* ListCtrl1;
+        wxListView* ListCtrl1;
         wxSearchCtrl* SearchCtrl1;
         wxStaticText* StaticText1;
         wxStaticText* StaticText2;
@@ -35,7 +35,7 @@ class LibroDiarioPanel: public wxPanel
         static const wxWindowID ID_STATICTEXT2;
         static const wxWindowID ID_DATEPICKERCTRL2;
         static const wxWindowID ID_SEARCHCTRL1;
-        static const wxWindowID ID_LISTCTRL1;
+        static const wxWindowID ID_LISTVIEW1;
         //*)
 
     private:

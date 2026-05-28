@@ -9,7 +9,9 @@
 
 #include "SigmaContableMain.h"
 
+#include <vector>
 #include <wx/msgdlg.h>
+#include "LibroContable.h"
 
 //(*InternalHeaders(SigmaContableFrame)
 #include <wx/artprov.h>
@@ -77,6 +79,7 @@ BEGIN_EVENT_TABLE(SigmaContableFrame,wxFrame)
     //(*EventTable(SigmaContableFrame)
     //*)
 END_EVENT_TABLE()
+
 
 SigmaContableFrame::SigmaContableFrame(wxWindow* parent,wxWindowID id)
 {
@@ -176,6 +179,7 @@ SigmaContableFrame::SigmaContableFrame(wxWindow* parent,wxWindowID id)
     Connect(idMenuQuit, wxEVT_COMMAND_MENU_SELECTED, (wxObjectEventFunction)&SigmaContableFrame::OnQuit);
     Connect(idMenuAbout, wxEVT_COMMAND_MENU_SELECTED, (wxObjectEventFunction)&SigmaContableFrame::OnAbout);
     //*)
+
 }
 
 SigmaContableFrame::~SigmaContableFrame()
@@ -204,8 +208,24 @@ void SigmaContableFrame::OnButton1Click(wxCommandEvent& event)
     Notebook1->DeleteAllPages();
 
 
-              libro = new LibroDiarioPanel(Notebook1,wxID_ANY,wxDefaultPosition,wxDefaultSize);
-        Notebook1->AddPage(libro,"Libro Diario",true);
+    libro = new LibroDiarioPanel(Notebook1,wxID_ANY,wxDefaultPosition,wxDefaultSize);
+    Notebook1->AddPage(libro,"Libro Diario",true);
+    LibroContable* lContable= new LibroContable("SigmaContableDB.scdb");
+
+    int fila=0;;
+        for(Registro* r : lContable->registros){
+        libro->ListCtrl1->InsertItem(fila,r->getAsientoId());
+
+        libro->ListCtrl1->SetItem(fila,1,std::to_string(r->getCuentaId()));
+        libro->ListCtrl1->SetItem(fila,2,std::to_string(r->getId()));
+        libro->ListCtrl1->SetItem(fila,1,std::to_string(r->getCuentaId()));
+        libro->ListCtrl1->SetItem(fila,4,r->getNotas());
+        libro->ListCtrl1->SetItem(fila,5,std::to_string(r->getDebe()));
+        libro->ListCtrl1->SetItem(fila,6,std::to_string(r->getHaber()));
+
+        fila++;
+    }
+
 
 
 }
@@ -215,10 +235,10 @@ void SigmaContableFrame::OnButton1Click(wxCommandEvent& event)
 void SigmaContableFrame::OnButton2Click(wxCommandEvent& event)
 {
     libro->ListCtrl1->InsertItem(0,"uno");
-    libro->ListCtrl1->SetItem(0,2,"dos");
+    libro->ListCtrl1->SetItem(0,2,"dos",-1);
     libro->ListCtrl1->SetItemBackgroundColour(0,100);
-    HtmlEasyPrinting1->SetName("Mufa");
-    HtmlEasyPrinting1->PreviewText("esto es un texto",wxEmptyString);
+  //  HtmlEasyPrinting1->SetName("Mufa");
+  //  HtmlEasyPrinting1->PreviewText("esto es un texto",wxEmptyString);
 
 
 }

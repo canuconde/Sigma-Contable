@@ -11,7 +11,7 @@ const wxWindowID LibroDiarioPanel::ID_DATEPICKERCTRL1 = wxNewId();
 const wxWindowID LibroDiarioPanel::ID_STATICTEXT2 = wxNewId();
 const wxWindowID LibroDiarioPanel::ID_DATEPICKERCTRL2 = wxNewId();
 const wxWindowID LibroDiarioPanel::ID_SEARCHCTRL1 = wxNewId();
-const wxWindowID LibroDiarioPanel::ID_LISTCTRL1 = wxNewId();
+const wxWindowID LibroDiarioPanel::ID_LISTVIEW1 = wxNewId();
 //*)
 
 BEGIN_EVENT_TABLE(LibroDiarioPanel,wxPanel)
@@ -38,8 +38,8 @@ LibroDiarioPanel::LibroDiarioPanel(wxWindow* parent,wxWindowID id,const wxPoint&
     StaticBoxSizer1->Add(DatePickerCtrl2, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     SearchCtrl1 = new wxSearchCtrl(this, ID_SEARCHCTRL1, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_SEARCHCTRL1"));
     StaticBoxSizer1->Add(SearchCtrl1, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    BoxSizer1->Add(StaticBoxSizer1, 0, wxBOTTOM|wxALIGN_RIGHT, 5);
-    ListCtrl1 = new wxListCtrl(this, ID_LISTCTRL1, wxDefaultPosition, wxSize(640,480), wxLC_REPORT|wxVSCROLL|wxHSCROLL, wxDefaultValidator, _T("ID_LISTCTRL1"));
+    BoxSizer1->Add(StaticBoxSizer1, 0, wxBOTTOM|wxEXPAND, 5);
+    ListCtrl1 = new wxListView(this, ID_LISTVIEW1, wxDefaultPosition, wxDefaultSize, wxLC_REPORT, wxDefaultValidator, _T("ID_LISTVIEW1"));
     BoxSizer1->Add(ListCtrl1, 1, wxALL|wxEXPAND, 5);
     SetSizer(BoxSizer1);
     BoxSizer1->SetSizeHints(this);
@@ -63,13 +63,15 @@ void LibroDiarioPanel::ActualizarLista(){
     ListCtrl1->InsertColumn(5,"Debe");
     ListCtrl1->InsertColumn(6,"Haber");
     //Escondemos los ID. Hay otra forma de recuperar ids, pero ahora lo dejo asi
-    ListCtrl1->SetColumnWidth(0,0);
-    ListCtrl1->SetColumnWidth(1,0);
-    ListCtrl1->SetColumnWidth(2,0);
+    ListCtrl1->SetColumnWidth(0,100);
+    ListCtrl1->SetColumnWidth(1,100);
+    ListCtrl1->SetColumnWidth(2,0100);
 
     ListCtrl1->SetColumnWidth(3,320);
     ListCtrl1->SetColumnWidth(4,320);
     ListCtrl1->SetColumnWidth(5,160);
     ListCtrl1->SetColumnWidth(6,160);
+
+
 
 }

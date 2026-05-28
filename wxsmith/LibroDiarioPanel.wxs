@@ -44,13 +44,12 @@
 						<option>1</option>
 					</object>
 				</object>
-				<flag>wxBOTTOM|wxALIGN_RIGHT</flag>
+				<flag>wxBOTTOM|wxEXPAND</flag>
 				<border>5</border>
 			</object>
 			<object class="sizeritem">
-				<object class="wxListCtrl" name="ID_LISTCTRL1" variable="ListCtrl1" member="yes">
-					<size>640,480</size>
-					<style>wxLC_REPORT|wxVSCROLL|wxHSCROLL</style>
+				<object class="wxListView" name="ID_LISTVIEW1" variable="ListCtrl1" member="yes">
+					<style>wxLC_REPORT</style>
 				</object>
 				<flag>wxALL|wxEXPAND</flag>
 				<border>5</border>
