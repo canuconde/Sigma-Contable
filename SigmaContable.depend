@@ -1432,13 +1432,11 @@
 
 1765945870 /usr/include/wx-3.2/wx/gtk/toolbar.h
 
-1779951240 source:/home/canu/SigmaContable/SigmaContableMain.cpp
+1779951926 source:/home/canu/SigmaContable/SigmaContableMain.cpp
 	"SigmaContableMain.h"
 	<wx/msgdlg.h>
 	<wx/artprov.h>
-	<wx/bitmap.h>
 	<wx/icon.h>
-	<wx/image.h>
 	<wx/intl.h>
 	<wx/string.h>
 
@@ -1740,4 +1738,54 @@
 	"wx/generic/hyperlink.h"
 
 1765945870 /usr/include/wx-3.2/wx/generic/hyperlink.h
+
+1779995207 source:/home/canu/SigmaContable/src/Asiento.cpp
+	"Asiento.h"
+
+1779995207 /home/canu/SigmaContable/include/Asiento.h
+	<string>
+
+1779995031 source:/home/canu/SigmaContable/src/AsientoDAO.cpp
+	"AsientoDAO.h"
+	"Asiento.h"
+	<sqlite3.h>
+
+1779995044 /home/canu/SigmaContable/include/AsientoDAO.h
+	<vector>
+
+1779995207 source:/home/canu/SigmaContable/src/Database.cpp
+	"Database.h"
+	<iostream>
+
+1779995207 /home/canu/SigmaContable/include/Database.h
+	<sqlite3.h>
+	<string>
+
+1779995268 source:/home/canu/SigmaContable/src/Cuenta.cpp
+	"Cuenta.h"
+
+1779995268 /home/canu/SigmaContable/include/Cuenta.h
+	<string>
+
+1779995207 source:/home/canu/SigmaContable/src/CuentaDAO.cpp
+	"CuentaDAO.h"
+	"Cuenta.h"
+	<sqlite3.h>
+
+1779995207 /home/canu/SigmaContable/include/CuentaDAO.h
+	<vector>
+
+1779995305 source:/home/canu/SigmaContable/src/Registro.cpp
+	"Registro.h"
+
+1779995305 /home/canu/SigmaContable/include/Registro.h
+	<string>
+
+1779995097 source:/home/canu/SigmaContable/src/RegistroDAO.cpp
+	"RegistroDAO.h"
+	"Registro.h"
+	<sqlite3.h>
+
+1779995095 /home/canu/SigmaContable/include/RegistroDAO.h
+	<vector>
 
