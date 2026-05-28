@@ -49,7 +49,7 @@ En desarrollo activo.
 ### Linux
 
 ```bash
-g++ main.cpp -o app `wx-config --cxxflags --libs` -lsqlite3
+g++ *.cpp src/*.cpp -o app `wx-config --cxxflags --libs` -lsqlite3 -I include
 ```
 
 ## Posibles mejoras futuras
