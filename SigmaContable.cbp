@@ -31,16 +31,24 @@
 			</Target>
 		</Build>
 		<Compiler>
-			<Add option="`wx-config --cflags`" />
+			<Add option="`wx-config --cxxflags`" />
 			<Add option="-Wall" />
+			<Add option="`wx-config --cflags`" />
+			<Add option="-fpermissive" />
 		</Compiler>
 		<Linker>
 			<Add option="`wx-config --libs`" />
 		</Linker>
+		<Unit filename="LibroDiarioPanel.cpp" />
+		<Unit filename="LibroDiarioPanel.h" />
+		<Unit filename="PlanCuentasPanel.cpp" />
+		<Unit filename="PlanCuentasPanel.h" />
 		<Unit filename="SigmaContableApp.cpp" />
 		<Unit filename="SigmaContableApp.h" />
 		<Unit filename="SigmaContableMain.cpp" />
 		<Unit filename="SigmaContableMain.h" />
+		<Unit filename="wxsmith/LibroDiarioPanel.wxs" />
+		<Unit filename="wxsmith/PlanCuentasPanel.wxs" />
 		<Unit filename="wxsmith/SigmaContableframe.wxs" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
@@ -48,6 +56,8 @@
 				<gui name="wxWidgets" src="SigmaContableApp.cpp" main="SigmaContableFrame" init_handlers="necessary" language="CPP" />
 				<resources>
 					<wxFrame wxs="wxsmith/SigmaContableframe.wxs" src="SigmaContableMain.cpp" hdr="SigmaContableMain.h" fwddecl="0" i18n="1" name="SigmaContableFrame" language="CPP" />
+					<wxPanel wxs="wxsmith/LibroDiarioPanel.wxs" src="LibroDiarioPanel.cpp" hdr="LibroDiarioPanel.h" fwddecl="0" i18n="1" name="LibroDiarioPanel" language="CPP" />
+					<wxPanel wxs="wxsmith/PlanCuentasPanel.wxs" src="PlanCuentasPanel.cpp" hdr="PlanCuentasPanel.h" fwddecl="0" i18n="1" name="PlanCuentasPanel" language="CPP" />
 				</resources>
 			</wxsmith>
 		</Extensions>

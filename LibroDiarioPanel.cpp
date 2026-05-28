@@ -6,6 +6,11 @@
 //*)
 
 //(*IdInit(LibroDiarioPanel)
+const wxWindowID LibroDiarioPanel::ID_STATICTEXT1 = wxNewId();
+const wxWindowID LibroDiarioPanel::ID_DATEPICKERCTRL1 = wxNewId();
+const wxWindowID LibroDiarioPanel::ID_STATICTEXT2 = wxNewId();
+const wxWindowID LibroDiarioPanel::ID_DATEPICKERCTRL2 = wxNewId();
+const wxWindowID LibroDiarioPanel::ID_SEARCHCTRL1 = wxNewId();
 const wxWindowID LibroDiarioPanel::ID_LISTCTRL1 = wxNewId();
 //*)
 
@@ -18,10 +23,23 @@ LibroDiarioPanel::LibroDiarioPanel(wxWindow* parent,wxWindowID id,const wxPoint&
 {
     //(*Initialize(LibroDiarioPanel)
     wxBoxSizer* BoxSizer1;
+    wxStaticBoxSizer* StaticBoxSizer1;
 
     Create(parent, id, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("id"));
     BoxSizer1 = new wxBoxSizer(wxVERTICAL);
-    ListCtrl1 = new wxListCtrl(this, ID_LISTCTRL1, wxDefaultPosition, wxDefaultSize, wxLC_REPORT|wxVSCROLL|wxHSCROLL, wxDefaultValidator, _T("ID_LISTCTRL1"));
+    StaticBoxSizer1 = new wxStaticBoxSizer(wxHORIZONTAL, this, wxEmptyString);
+    StaticText1 = new wxStaticText(this, ID_STATICTEXT1, _("Filtrar desde:"), wxDefaultPosition, wxDefaultSize, wxALIGN_RIGHT, _T("ID_STATICTEXT1"));
+    StaticBoxSizer1->Add(StaticText1, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    DatePickerCtrl1 = new wxDatePickerCtrl(this, ID_DATEPICKERCTRL1, wxDefaultDateTime, wxDefaultPosition, wxDefaultSize, wxDP_DEFAULT|wxDP_SHOWCENTURY, wxDefaultValidator, _T("ID_DATEPICKERCTRL1"));
+    StaticBoxSizer1->Add(DatePickerCtrl1, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText2 = new wxStaticText(this, ID_STATICTEXT2, _("Hasta:"), wxDefaultPosition, wxDefaultSize, wxALIGN_RIGHT, _T("ID_STATICTEXT2"));
+    StaticBoxSizer1->Add(StaticText2, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    DatePickerCtrl2 = new wxDatePickerCtrl(this, ID_DATEPICKERCTRL2, wxDefaultDateTime, wxDefaultPosition, wxDefaultSize, wxDP_DEFAULT|wxDP_SHOWCENTURY, wxDefaultValidator, _T("ID_DATEPICKERCTRL2"));
+    StaticBoxSizer1->Add(DatePickerCtrl2, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    SearchCtrl1 = new wxSearchCtrl(this, ID_SEARCHCTRL1, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_SEARCHCTRL1"));
+    StaticBoxSizer1->Add(SearchCtrl1, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer1->Add(StaticBoxSizer1, 0, wxBOTTOM|wxALIGN_RIGHT, 5);
+    ListCtrl1 = new wxListCtrl(this, ID_LISTCTRL1, wxDefaultPosition, wxSize(640,480), wxLC_REPORT|wxVSCROLL|wxHSCROLL, wxDefaultValidator, _T("ID_LISTCTRL1"));
     BoxSizer1->Add(ListCtrl1, 1, wxALL|wxEXPAND, 5);
     SetSizer(BoxSizer1);
     BoxSizer1->SetSizeHints(this);
@@ -46,5 +64,12 @@ void LibroDiarioPanel::ActualizarLista(){
     ListCtrl1->InsertColumn(6,"Haber");
     //Escondemos los ID. Hay otra forma de recuperar ids, pero ahora lo dejo asi
     ListCtrl1->SetColumnWidth(0,0);
+    ListCtrl1->SetColumnWidth(1,0);
+    ListCtrl1->SetColumnWidth(2,0);
+
+    ListCtrl1->SetColumnWidth(3,320);
+    ListCtrl1->SetColumnWidth(4,320);
+    ListCtrl1->SetColumnWidth(5,160);
+    ListCtrl1->SetColumnWidth(6,160);
 
 }

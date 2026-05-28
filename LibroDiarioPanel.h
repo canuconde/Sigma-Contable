@@ -2,9 +2,13 @@
 #define LIBRODIARIOPANEL_H
 
 //(*Headers(LibroDiarioPanel)
+#include <wx/datectrl.h>
+#include <wx/dateevt.h>
 #include <wx/listctrl.h>
 #include <wx/panel.h>
 #include <wx/sizer.h>
+#include <wx/srchctrl.h>
+#include <wx/stattext.h>
 //*)
 
 class LibroDiarioPanel: public wxPanel
@@ -15,12 +19,22 @@ class LibroDiarioPanel: public wxPanel
         virtual ~LibroDiarioPanel();
         void ActualizarLista();
         //(*Declarations(LibroDiarioPanel)
+        wxDatePickerCtrl* DatePickerCtrl1;
+        wxDatePickerCtrl* DatePickerCtrl2;
         wxListCtrl* ListCtrl1;
+        wxSearchCtrl* SearchCtrl1;
+        wxStaticText* StaticText1;
+        wxStaticText* StaticText2;
         //*)
 
     protected:
 
         //(*Identifiers(LibroDiarioPanel)
+        static const wxWindowID ID_STATICTEXT1;
+        static const wxWindowID ID_DATEPICKERCTRL1;
+        static const wxWindowID ID_STATICTEXT2;
+        static const wxWindowID ID_DATEPICKERCTRL2;
+        static const wxWindowID ID_SEARCHCTRL1;
         static const wxWindowID ID_LISTCTRL1;
         //*)
 

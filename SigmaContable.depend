@@ -572,11 +572,15 @@
 
 1765945870 /usr/include/wx-3.2/wx/gtk/app.h
 
-1779942228 /home/canu/SigmaContable/SigmaContableMain.h
+1779951817 /home/canu/SigmaContable/SigmaContableMain.h
 	"LibroDiarioPanel.h"
+	"PlanCuentasPanel.h"
+	<wx/bitmap.h>
 	<wx/button.h>
 	<wx/frame.h>
 	<wx/html/htmprint.h>
+	<wx/hyperlink.h>
+	<wx/image.h>
 	<wx/menu.h>
 	<wx/msgdlg.h>
 	<wx/notebook.h>
@@ -1428,7 +1432,7 @@
 
 1765945870 /usr/include/wx-3.2/wx/gtk/toolbar.h
 
-1779941024 source:/home/canu/SigmaContable/SigmaContableMain.cpp
+1779951240 source:/home/canu/SigmaContable/SigmaContableMain.cpp
 	"SigmaContableMain.h"
 	<wx/msgdlg.h>
 	<wx/artprov.h>
@@ -1534,13 +1538,206 @@
 	"wx/scrolwin.h"
 	"wx/textctrl.h"
 
-1779942121 source:/home/canu/SigmaContable/LibroDiarioPanel.cpp
+1779951495 source:/home/canu/SigmaContable/LibroDiarioPanel.cpp
 	"LibroDiarioPanel.h"
 	<wx/intl.h>
 	<wx/string.h>
 
-1779933459 /home/canu/SigmaContable/LibroDiarioPanel.h
+1779951169 /home/canu/SigmaContable/LibroDiarioPanel.h
+	<wx/datectrl.h>
+	<wx/dateevt.h>
 	<wx/listctrl.h>
 	<wx/panel.h>
 	<wx/sizer.h>
+	<wx/srchctrl.h>
+	<wx/stattext.h>
+
+1779950025 /home/canu/SigmaContable/PlanCuentasPanel.h
+	<wx/treelist.h>
+	<wx/listctrl.h>
+	<wx/panel.h>
+	<wx/sizer.h>
+
+1779950040 source:/home/canu/SigmaContable/PlanCuentasPanel.cpp
+	"PlanCuentasPanel.h"
+	<wx/intl.h>
+	<wx/string.h>
+
+1765945870 /usr/include/wx-3.2/wx/treelist.h
+	"wx/defs.h"
+	"wx/compositewin.h"
+	"wx/containr.h"
+	"wx/headercol.h"
+	"wx/itemid.h"
+	"wx/vector.h"
+	"wx/window.h"
+	"wx/withimages.h"
+
+1765945870 /usr/include/wx-3.2/wx/aui/aui.h
+	"wx/aui/framemanager.h"
+	"wx/aui/dockart.h"
+	"wx/aui/floatpane.h"
+	"wx/aui/auibar.h"
+	"wx/aui/auibook.h"
+	"wx/aui/tabmdi.h"
+
+1765945870 /usr/include/wx-3.2/wx/aui/framemanager.h
+	"wx/defs.h"
+	"wx/dynarray.h"
+	"wx/gdicmn.h"
+	"wx/window.h"
+	"wx/timer.h"
+	"wx/sizer.h"
+	"wx/bmpbndl.h"
+
+1765945870 /usr/include/wx-3.2/wx/timer.h
+	"wx/defs.h"
+	"wx/object.h"
+	"wx/longlong.h"
+	"wx/event.h"
+	"wx/stopwatch.h"
+	"wx/utils.h"
+
+1765945870 /usr/include/wx-3.2/wx/stopwatch.h
+	"wx/defs.h"
+	"wx/longlong.h"
+	"wx/time.h"
+
+1765945870 /usr/include/wx-3.2/wx/aui/dockart.h
+	"wx/defs.h"
+	"wx/pen.h"
+	"wx/brush.h"
+	"wx/bmpbndl.h"
+	"wx/colour.h"
+
+1765945870 /usr/include/wx-3.2/wx/aui/floatpane.h
+	"wx/defs.h"
+	"wx/weakref.h"
+	"wx/minifram.h"
+	"wx/frame.h"
+
+1765945870 /usr/include/wx-3.2/wx/minifram.h
+	"wx/defs.h"
+	"wx/msw/minifram.h"
+	"wx/motif/minifram.h"
+	"wx/gtk/minifram.h"
+	"wx/gtk1/minifram.h"
+	"wx/x11/minifram.h"
+	"wx/osx/minifram.h"
+	"wx/qt/minifram.h"
+	"wx/frame.h"
+
+1765945870 /usr/include/wx-3.2/wx/gtk/minifram.h
+	"wx/bitmap.h"
+	"wx/frame.h"
+
+1765945870 /usr/include/wx-3.2/wx/aui/auibar.h
+	"wx/defs.h"
+	"wx/bmpbndl.h"
+	"wx/control.h"
+	"wx/sizer.h"
+	"wx/pen.h"
+	"wx/aui/barartmsw.h"
+
+1765945870 /usr/include/wx-3.2/wx/aui/auibook.h
+	"wx/defs.h"
+	"wx/aui/tabart.h"
+	"wx/aui/framemanager.h"
+	"wx/bookctrl.h"
+	"wx/containr.h"
+
+1765945870 /usr/include/wx-3.2/wx/aui/tabart.h
+	"wx/defs.h"
+	"wx/colour.h"
+	"wx/gdicmn.h"
+	"wx/font.h"
+	"wx/pen.h"
+	"wx/brush.h"
+	"wx/bmpbndl.h"
+	"wx/aui/tabartgtk.h"
+	"wx/aui/tabartmsw.h"
+
+1765945870 /usr/include/wx-3.2/wx/aui/tabmdi.h
+	"wx/frame.h"
+	"wx/panel.h"
+	"wx/notebook.h"
+	"wx/icon.h"
+	"wx/mdi.h"
+	"wx/aui/auibook.h"
+
+1765945870 /usr/include/wx-3.2/wx/mdi.h
+	"wx/defs.h"
+	"wx/frame.h"
+	"wx/menu.h"
+	"wx/generic/mdig.h"
+	"wx/msw/mdi.h"
+	"wx/gtk/mdi.h"
+	"wx/gtk1/mdi.h"
+	"wx/osx/mdi.h"
+	"wx/qt/mdi.h"
+
+1765945870 /usr/include/wx-3.2/wx/gtk/mdi.h
+	"wx/frame.h"
+
+1765945870 /usr/include/wx-3.2/wx/datectrl.h
+	"wx/defs.h"
+	"wx/datetimectrl.h"
+	"wx/msw/datectrl.h"
+	"wx/osx/datectrl.h"
+	"wx/generic/datectrl.h"
+
+1765945870 /usr/include/wx-3.2/wx/datetimectrl.h
+	"wx/defs.h"
+	"wx/control.h"
+	"wx/datetime.h"
+	"wx/msw/datetimectrl.h"
+	"wx/osx/datetimectrl.h"
+
+1765945870 /usr/include/wx-3.2/wx/generic/datectrl.h
+	"wx/compositewin.h"
+	"wx/containr.h"
+
+1765945870 /usr/include/wx-3.2/wx/dateevt.h
+	"wx/event.h"
+	"wx/datetime.h"
+	"wx/window.h"
+
+1765945870 /usr/include/wx-3.2/wx/srchctrl.h
+	"wx/defs.h"
+	"wx/textctrl.h"
+	"wx/compositewin.h"
+	"wx/containr.h"
+	"wx/osx/srchctrl.h"
+	"wx/gtk/srchctrl.h"
+	"wx/generic/srchctlg.h"
+
+1765945870 /usr/include/wx-3.2/wx/gtk/srchctrl.h
+
+1765945870 /usr/include/wx-3.2/wx/generic/srchctlg.h
+	"wx/bitmap.h"
+
+1765945870 /usr/include/wx-3.2/wx/stattext.h
+	"wx/defs.h"
+	"wx/control.h"
+	"wx/univ/stattext.h"
+	"wx/msw/stattext.h"
+	"wx/motif/stattext.h"
+	"wx/gtk/stattext.h"
+	"wx/gtk1/stattext.h"
+	"wx/osx/stattext.h"
+	"wx/qt/stattext.h"
+
+1765945870 /usr/include/wx-3.2/wx/gtk/stattext.h
+
+1765945870 /usr/include/wx-3.2/wx/hyperlink.h
+	"wx/defs.h"
+	"wx/control.h"
+	"wx/gtk/hyperlink.h"
+	"wx/msw/hyperlink.h"
+	"wx/generic/hyperlink.h"
+
+1765945870 /usr/include/wx-3.2/wx/gtk/hyperlink.h
+	"wx/generic/hyperlink.h"
+
+1765945870 /usr/include/wx-3.2/wx/generic/hyperlink.h
 
