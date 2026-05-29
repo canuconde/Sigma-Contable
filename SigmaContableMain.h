@@ -11,6 +11,7 @@
 #define SIGMACONTABLEMAIN_H
 #include "LibroDiarioPanel.h"
 #include "PlanCuentasPanel.h"
+#include "NuevoAsientoFrame.h"
 //(*Headers(SigmaContableFrame)
 #include <wx/bitmap.h>
 #include <wx/button.h>
@@ -44,6 +45,7 @@ public:
     LibroDiarioPanel* libroDiario;
     PlanCuentasPanel* planCuentas;
     LibroContable* lContable;
+
     void ActualizarPaneles();
 private:
 
@@ -54,12 +56,15 @@ private:
     void OnButton2Click(wxCommandEvent& event);
     void OnButton3Click(wxCommandEvent& event);
     void OnToolBarItem4Clicked(wxCommandEvent& event);
+    void OnButton5Click(wxCommandEvent& event);
     //*)
 
     //(*Identifiers(SigmaContableFrame)
+    static const wxWindowID ID_BUTTON5;
     static const wxWindowID ID_BUTTON1;
     static const wxWindowID ID_BUTTON2;
     static const wxWindowID ID_BUTTON3;
+    static const wxWindowID ID_BUTTON6;
     static const wxWindowID ID_BUTTON4;
     static const wxWindowID ID_HYPERLINKCTRL1;
     static const wxWindowID ID_PANEL1;
@@ -90,6 +95,8 @@ private:
     wxButton* Button2;
     wxButton* Button3;
     wxButton* Button4;
+    wxButton* Button5;
+    wxButton* Button6;
     wxHtmlEasyPrinting* HtmlEasyPrinting1;
     wxHyperlinkCtrl* HyperlinkCtrl1;
     wxImage               *Image1;

@@ -11,7 +11,7 @@ class PlanCuentasPanel: public wxPanel
 {
     public:
 
-        PlanCuentasPanel(wxWindow* parent,wxWindowID id=wxID_ANY,const wxPoint& pos=wxDefaultPosition,const wxSize& size=wxDefaultSize,LibroContable* lContable=nullptr);
+        PlanCuentasPanel(wxWindow* parent,LibroContable* lContable,wxWindowID id=wxID_ANY,const wxPoint& pos=wxDefaultPosition,const wxSize& size=wxDefaultSize);
         virtual ~PlanCuentasPanel();
         LibroContable* lContable;
         void Actualizar();

@@ -1,10 +1,11 @@
 # depslib dependency file v1.0
-1779996608 source:/home/canu/SigmaContable/SigmaContableApp.cpp
+1780079750 source:/home/canu/SigmaContable/SigmaContableApp.cpp
 	"SigmaContableApp.h"
+	"LibroContable.h"
 	"SigmaContableMain.h"
 	<wx/image.h>
 
-1779749449 /home/canu/SigmaContable/SigmaContableApp.h
+1780079750 /home/canu/SigmaContable/SigmaContableApp.h
 	<wx/app.h>
 
 1765945870 /usr/include/wx-3.2/wx/app.h
@@ -572,9 +573,10 @@
 
 1765945870 /usr/include/wx-3.2/wx/gtk/app.h
 
-1780013733 /home/canu/SigmaContable/SigmaContableMain.h
+1780076908 /home/canu/SigmaContable/SigmaContableMain.h
 	"LibroDiarioPanel.h"
 	"PlanCuentasPanel.h"
+	"NuevoAsientoFrame.h"
 	<wx/bitmap.h>
 	<wx/button.h>
 	<wx/frame.h>
@@ -1432,7 +1434,7 @@
 
 1765945870 /usr/include/wx-3.2/wx/gtk/toolbar.h
 
-1780013856 source:/home/canu/SigmaContable/SigmaContableMain.cpp
+1780079880 source:/home/canu/SigmaContable/SigmaContableMain.cpp
 	"SigmaContableMain.h"
 	<vector>
 	<wx/msgdlg.h>
@@ -1538,28 +1540,32 @@
 	"wx/scrolwin.h"
 	"wx/textctrl.h"
 
-1780012931 source:/home/canu/SigmaContable/LibroDiarioPanel.cpp
+1780070670 source:/home/canu/SigmaContable/LibroDiarioPanel.cpp
 	"LibroDiarioPanel.h"
+	<wx/artprov.h>
+	<wx/bitmap.h>
+	<wx/image.h>
 	<wx/intl.h>
 	<wx/string.h>
 
-1780012750 /home/canu/SigmaContable/LibroDiarioPanel.h
+1780019452 /home/canu/SigmaContable/LibroDiarioPanel.h
 	"LibroContable.h"
+	<wx/bmpbuttn.h>
+	<wx/button.h>
 	<wx/datectrl.h>
 	<wx/dateevt.h>
 	<wx/listctrl.h>
 	<wx/panel.h>
 	<wx/sizer.h>
-	<wx/srchctrl.h>
 	<wx/stattext.h>
 
-1780014031 /home/canu/SigmaContable/PlanCuentasPanel.h
+1780079750 /home/canu/SigmaContable/PlanCuentasPanel.h
 	"LibroContable.h"
 	<wx/listctrl.h>
 	<wx/panel.h>
 	<wx/sizer.h>
 
-1780014000 source:/home/canu/SigmaContable/PlanCuentasPanel.cpp
+1780079750 source:/home/canu/SigmaContable/PlanCuentasPanel.cpp
 	"PlanCuentasPanel.h"
 	<wx/intl.h>
 	<wx/string.h>
@@ -1808,4 +1814,44 @@
 	"Registro.h"
 	"Cuenta.h"
 	"Asiento.h"
+
+1780080314 /home/canu/SigmaContable/NuevoAsientoFrame.h
+	"LibroContable.h"
+	<wx/datectrl.h>
+	<wx/dateevt.h>
+	<wx/frame.h>
+	<wx/grid.h>
+	<wx/panel.h>
+	<wx/sizer.h>
+	<wx/stattext.h>
+	<wx/textctrl.h>
+
+1765945870 /usr/include/wx-3.2/wx/grid.h
+	"wx/generic/grid.h"
+	"wx/generic/grideditors.h"
+	"wx/generic/gridctrl.h"
+
+1765945870 /usr/include/wx-3.2/wx/generic/grid.h
+	"wx/defs.h"
+	"wx/hashmap.h"
+	"wx/scrolwin.h"
+	<iterator>
+
+1765945870 /usr/include/wx-3.2/wx/generic/grideditors.h
+	"wx/defs.h"
+	"wx/scopedptr.h"
+
+1765945870 /usr/include/wx-3.2/wx/generic/gridctrl.h
+	"wx/grid.h"
+	"wx/datetime.h"
+
+1780080571 source:/home/canu/SigmaContable/NuevoAsientoFrame.cpp
+	"NuevoAsientoFrame.h"
+	<wx/button.h>
+	<wx/intl.h>
+	<wx/string.h>
+
+1765945870 /usr/include/wx-3.2/wx/snglinst.h
+	"wx/app.h"
+	"wx/utils.h"
 

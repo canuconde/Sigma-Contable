@@ -8,7 +8,7 @@
  **************************************************************/
 
 #include "SigmaContableApp.h"
-
+#include "LibroContable.h"
 //(*AppHeaders
 #include "SigmaContableMain.h"
 #include <wx/image.h>
@@ -18,6 +18,13 @@ IMPLEMENT_APP(SigmaContableApp);
 
 bool SigmaContableApp::OnInit()
 {
+    //Inicializamos Locale
+    static wxLocale locale;
+    // Español Argentina
+    locale.Init(wxLANGUAGE_SPANISH_ARGENTINA);
+
+
+
     //(*AppInitialize
     bool wxsOK = true;
     wxInitAllImageHandlers();

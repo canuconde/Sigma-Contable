@@ -1,17 +1,24 @@
 #include "LibroDiarioPanel.h"
 
 //(*InternalHeaders(LibroDiarioPanel)
+#include <wx/artprov.h>
+#include <wx/bitmap.h>
+#include <wx/image.h>
 #include <wx/intl.h>
 #include <wx/string.h>
 //*)
 
 //(*IdInit(LibroDiarioPanel)
 const wxWindowID LibroDiarioPanel::ID_STATICTEXT1 = wxNewId();
-const wxWindowID LibroDiarioPanel::ID_DATEPICKERCTRL1 = wxNewId();
 const wxWindowID LibroDiarioPanel::ID_STATICTEXT2 = wxNewId();
+const wxWindowID LibroDiarioPanel::ID_DATEPICKERCTRL1 = wxNewId();
+const wxWindowID LibroDiarioPanel::ID_STATICTEXT3 = wxNewId();
 const wxWindowID LibroDiarioPanel::ID_DATEPICKERCTRL2 = wxNewId();
-const wxWindowID LibroDiarioPanel::ID_SEARCHCTRL1 = wxNewId();
+const wxWindowID LibroDiarioPanel::ID_BITMAPBUTTON1 = wxNewId();
 const wxWindowID LibroDiarioPanel::ID_LISTVIEW1 = wxNewId();
+const wxWindowID LibroDiarioPanel::ID_BUTTON1 = wxNewId();
+const wxWindowID LibroDiarioPanel::ID_BUTTON2 = wxNewId();
+const wxWindowID LibroDiarioPanel::ID_BUTTON3 = wxNewId();
 //*)
 
 BEGIN_EVENT_TABLE(LibroDiarioPanel,wxPanel)
@@ -23,26 +30,43 @@ LibroDiarioPanel::LibroDiarioPanel(wxWindow* parent,wxWindowID id,const wxPoint&
 {
     //(*Initialize(LibroDiarioPanel)
     wxBoxSizer* BoxSizer1;
+    wxBoxSizer* BoxSizer2;
     wxStaticBoxSizer* StaticBoxSizer1;
 
     Create(parent, id, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL, _T("id"));
     BoxSizer1 = new wxBoxSizer(wxVERTICAL);
-    StaticBoxSizer1 = new wxStaticBoxSizer(wxHORIZONTAL, this, wxEmptyString);
-    StaticText1 = new wxStaticText(this, ID_STATICTEXT1, _("Filtrar desde:"), wxDefaultPosition, wxDefaultSize, wxALIGN_RIGHT, _T("ID_STATICTEXT1"));
-    StaticBoxSizer1->Add(StaticText1, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer2 = new wxBoxSizer(wxHORIZONTAL);
+    StaticText1 = new wxStaticText(this, ID_STATICTEXT1, _("Filtrar por fecha"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT1"));
+    BoxSizer2->Add(StaticText1, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText2 = new wxStaticText(this, ID_STATICTEXT2, _("Desde:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT2"));
+    BoxSizer2->Add(StaticText2, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     DatePickerCtrl1 = new wxDatePickerCtrl(this, ID_DATEPICKERCTRL1, wxDefaultDateTime, wxDefaultPosition, wxDefaultSize, wxDP_DEFAULT|wxDP_SHOWCENTURY, wxDefaultValidator, _T("ID_DATEPICKERCTRL1"));
-    StaticBoxSizer1->Add(DatePickerCtrl1, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    StaticText2 = new wxStaticText(this, ID_STATICTEXT2, _("Hasta:"), wxDefaultPosition, wxDefaultSize, wxALIGN_RIGHT, _T("ID_STATICTEXT2"));
-    StaticBoxSizer1->Add(StaticText2, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer2->Add(DatePickerCtrl1, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText3 = new wxStaticText(this, ID_STATICTEXT3, _("Hasta:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT3"));
+    BoxSizer2->Add(StaticText3, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     DatePickerCtrl2 = new wxDatePickerCtrl(this, ID_DATEPICKERCTRL2, wxDefaultDateTime, wxDefaultPosition, wxDefaultSize, wxDP_DEFAULT|wxDP_SHOWCENTURY, wxDefaultValidator, _T("ID_DATEPICKERCTRL2"));
-    StaticBoxSizer1->Add(DatePickerCtrl2, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    SearchCtrl1 = new wxSearchCtrl(this, ID_SEARCHCTRL1, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_SEARCHCTRL1"));
-    StaticBoxSizer1->Add(SearchCtrl1, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    BoxSizer1->Add(StaticBoxSizer1, 0, wxBOTTOM|wxEXPAND, 5);
+    BoxSizer2->Add(DatePickerCtrl2, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BitmapButton1 = new wxBitmapButton(this, ID_BITMAPBUTTON1, wxArtProvider::GetBitmap(wxART_MAKE_ART_ID_FROM_STR(_T("wxART_GO_FORWARD")),wxART_BUTTON), wxDefaultPosition, wxDefaultSize, wxBU_AUTODRAW, wxDefaultValidator, _T("ID_BITMAPBUTTON1"));
+    BoxSizer2->Add(BitmapButton1, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer1->Add(BoxSizer2, 0, wxALL|wxEXPAND, 5);
     ListCtrl1 = new wxListView(this, ID_LISTVIEW1, wxDefaultPosition, wxDefaultSize, wxLC_REPORT, wxDefaultValidator, _T("ID_LISTVIEW1"));
     BoxSizer1->Add(ListCtrl1, 1, wxALL|wxEXPAND, 5);
+    StaticBoxSizer1 = new wxStaticBoxSizer(wxHORIZONTAL, this, _("Editar Seleccionado"));
+    StaticBoxSizer1->Add(-1,-1,1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    Button1 = new wxButton(this, ID_BUTTON1, _("Modificar Asiento"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON1"));
+    Button1->Disable();
+    StaticBoxSizer1->Add(Button1, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    Button2 = new wxButton(this, ID_BUTTON2, _("Editar"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON2"));
+    Button2->Disable();
+    StaticBoxSizer1->Add(Button2, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    Button3 = new wxButton(this, ID_BUTTON3, _("Eliminar"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON3"));
+    Button3->Disable();
+    StaticBoxSizer1->Add(Button3, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer1->Add(StaticBoxSizer1, 0, wxALL|wxEXPAND, 5);
     SetSizer(BoxSizer1);
     BoxSizer1->SetSizeHints(this);
+
+    Connect(ID_LISTVIEW1, wxEVT_COMMAND_LIST_ITEM_SELECTED, (wxObjectEventFunction)&LibroDiarioPanel::OnListCtrl1ItemSelect);
     //*)
     ActualizarLista();
 }
@@ -79,10 +103,25 @@ void LibroDiarioPanel::ActualizarLista(){
         ListCtrl1->SetItem(fila,2,std::to_string(r->getId()));
         ListCtrl1->SetItem(fila,3,lContable->getNombreCuenta(r->getCuentaId()));
         ListCtrl1->SetItem(fila,4,r->getNotas());
-        ListCtrl1->SetItem(fila,5,std::to_string(r->getDebe()));
-        ListCtrl1->SetItem(fila,6,std::to_string(r->getHaber()));
+        wxString texto = wxString::Format("%.2f", r->getDebe());
+        ListCtrl1->SetItem(fila,5,texto);
+        texto = wxString::Format("%.2f", r->getHaber());
+        ListCtrl1->SetItem(fila,6,texto);
         fila++;
     }
 
 
+}
+
+void LibroDiarioPanel::OnListCtrl1ItemSelect(wxListEvent& event)
+{
+    long seleccion=ListCtrl1->GetFirstSelected();
+    //Si no hay nada en la celda 3 CUENTA deshabilitamos los botones de edicion y eliminacion
+    if(ListCtrl1->GetItemText(seleccion,3)==""){
+            Button2->Disable();
+            Button3->Disable();
+    }else{
+            Button2->Enable();
+            Button3->Enable();
+    }
 }

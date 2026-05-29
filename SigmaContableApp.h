@@ -18,4 +18,5 @@ public:
     virtual bool OnInit();
 };
 
+
 #endif // SIGMACONTABLEAPP_H

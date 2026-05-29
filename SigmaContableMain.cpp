@@ -49,6 +49,7 @@ wxString wxbuildinfo(wxbuildinfoformat format)
 }
 
 //(*IdInit(SigmaContableFrame)
+const wxWindowID SigmaContableFrame::ID_BUTTON5 = wxNewId();
 const wxWindowID SigmaContableFrame::ID_BUTTON1 = wxNewId();
 const wxWindowID SigmaContableFrame::ID_BUTTON2 = wxNewId();
 const wxWindowID SigmaContableFrame::ID_BUTTON3 = wxNewId();
@@ -105,6 +106,10 @@ SigmaContableFrame::SigmaContableFrame(wxWindow* parent,wxWindowID id)
     SplitterWindow1->SetSashGravity(0.5);
     Panel1 = new wxPanel(SplitterWindow1, ID_PANEL1, wxPoint(234,175), wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL1"));
     BoxSizer1 = new wxBoxSizer(wxVERTICAL);
+    Button5 = new wxButton(Panel1, ID_BUTTON5, _("Nuevo Asiento"), wxDefaultPosition, wxDefaultSize, wxBORDER_NONE, wxDefaultValidator, _T("ID_BUTTON5"));
+    Button5->SetToolTip(_("Nuevo"));
+    Button5->SetHelpText(_("Asiento"));
+    BoxSizer1->Add(Button5, 1, wxALL|wxEXPAND, 5);
     Button1 = new wxButton(Panel1, ID_BUTTON1, _("Libro Diario"), wxDefaultPosition, wxDefaultSize, wxBORDER_NONE, wxDefaultValidator, _T("ID_BUTTON1"));
     BoxSizer1->Add(Button1, 1, wxALL|wxEXPAND, 5);
     Button2 = new wxButton(Panel1, ID_BUTTON2, _("Libro Mayor"), wxDefaultPosition, wxDefaultSize, wxBORDER_NONE, wxDefaultValidator, _T("ID_BUTTON2"));
@@ -175,6 +180,7 @@ SigmaContableFrame::SigmaContableFrame(wxWindow* parent,wxWindowID id)
     Image1 = new wxImage();
     Image1_BMP = new wxBitmap();
 
+    Connect(ID_BUTTON5, wxEVT_COMMAND_BUTTON_CLICKED, (wxObjectEventFunction)&SigmaContableFrame::OnButton5Click);
     Connect(ID_BUTTON1, wxEVT_COMMAND_BUTTON_CLICKED, (wxObjectEventFunction)&SigmaContableFrame::OnButton1Click);
     Connect(ID_BUTTON2, wxEVT_COMMAND_BUTTON_CLICKED, (wxObjectEventFunction)&SigmaContableFrame::OnButton2Click);
     Connect(ID_BUTTON3, wxEVT_COMMAND_BUTTON_CLICKED, (wxObjectEventFunction)&SigmaContableFrame::OnButton3Click);
@@ -184,6 +190,8 @@ SigmaContableFrame::SigmaContableFrame(wxWindow* parent,wxWindowID id)
     //*)
 
     ActualizarPaneles();
+    //Creamos las ventanas ahora
+
 
 }
 
@@ -198,6 +206,7 @@ void SigmaContableFrame::ActualizarPaneles(){
     //Primero deberiamos eliminar todo
     Notebook1->DeleteAllPages();
 
+
     //Cargamos los datos de la BD
     lContable= new LibroContable("SigmaContableDB.scdb");
 
@@ -206,7 +215,7 @@ void SigmaContableFrame::ActualizarPaneles(){
     Notebook1->AddPage(libroDiario,"Libro Diario",true);
 
     //Cargamos panel Cuentas y lo asignamos al notebook
-    planCuentas = new PlanCuentasPanel(Notebook1,wxID_ANY,wxDefaultPosition,wxDefaultSize,lContable);
+    planCuentas = new PlanCuentasPanel(Notebook1,lContable,wxID_ANY,wxDefaultPosition,wxDefaultSize);
     Notebook1->AddPage(planCuentas,"Plande Cuentas",true);
 
     //Seleccionamos el primer notebook
@@ -237,6 +246,8 @@ void SigmaContableFrame::OnButton1Click(wxCommandEvent& event)
 void SigmaContableFrame::OnButton2Click(wxCommandEvent& event)
 {
 
+
+
   //  HtmlEasyPrinting1->SetName("Mufa");
   //  HtmlEasyPrinting1->PreviewText("esto es un texto",wxEmptyString);
 
@@ -252,4 +263,12 @@ void SigmaContableFrame::OnToolBarItem4Clicked(wxCommandEvent& event)
 {
     //Actualizamos la BD y Regeneramos paneles
     ActualizarPaneles();
+}
+//Nuevo Asiento
+void SigmaContableFrame::OnButton5Click(wxCommandEvent& event)
+{
+        wxFrame* nuevoAsiento = new NuevoAsientoFrame(this,lContable);
+        nuevoAsiento->GetParent()->Enable(false);
+        nuevoAsiento->Show(true);
+
 }

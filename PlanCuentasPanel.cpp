@@ -14,7 +14,7 @@ BEGIN_EVENT_TABLE(PlanCuentasPanel,wxPanel)
     //*)
 END_EVENT_TABLE()
 
-PlanCuentasPanel::PlanCuentasPanel(wxWindow* parent,wxWindowID id,const wxPoint& pos,const wxSize& size, LibroContable * lContable):lContable(lContable)
+PlanCuentasPanel::PlanCuentasPanel(wxWindow* parent, LibroContable * lContable,wxWindowID id,const wxPoint& pos,const wxSize& size):lContable(lContable)
 {
     //(*Initialize(PlanCuentasPanel)
     wxBoxSizer* BoxSizer1;

@@ -15,6 +15,18 @@
 				<object class="wxBoxSizer" variable="BoxSizer1" member="no">
 					<orient>wxVERTICAL</orient>
 					<object class="sizeritem">
+						<object class="wxButton" name="ID_BUTTON5" variable="Button5" member="yes">
+							<label>Nuevo Asiento</label>
+							<tooltip>Nuevo</tooltip>
+							<help>Asiento</help>
+							<style>wxBORDER_NONE</style>
+							<handler function="OnButton5Click" entry="EVT_BUTTON" />
+						</object>
+						<flag>wxALL|wxEXPAND</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
 						<object class="wxButton" name="ID_BUTTON1" variable="Button1" member="yes">
 							<label>Libro Diario</label>
 							<style>wxBORDER_NONE</style>

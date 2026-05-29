@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<wxsmith>
+	<object class="wxFrame" name="NuevoAsientoFrame">
+		<title>Nuevo Asiento</title>
+		<centered>1</centered>
+		<size>640,480</size>
+		<pos_arg>1</pos_arg>
+		<size_arg>1</size_arg>
+		<style>wxDEFAULT_FRAME_STYLE|wxFRAME_FLOAT_ON_PARENT|wxSTAY_ON_TOP</style>
+		<object class="wxPanel" name="ID_PANEL1" variable="Panel1" member="yes">
+			<pos>192,176</pos>
+			<object class="wxBoxSizer" variable="BoxSizer1" member="no">
+				<orient>wxVERTICAL</orient>
+				<object class="sizeritem">
+					<object class="wxBoxSizer" variable="BoxSizer2" member="no">
+						<object class="sizeritem">
+							<object class="wxBoxSizer" variable="BoxSizer4" member="no">
+								<orient>wxVERTICAL</orient>
+								<object class="sizeritem">
+									<object class="wxStaticText" name="ID_STATICTEXT1" variable="StaticText1" member="yes">
+										<label>Label</label>
+									</object>
+									<flag>wxALIGN_LEFT</flag>
+									<border>5</border>
+									<option>1</option>
+								</object>
+								<object class="sizeritem">
+									<object class="wxDatePickerCtrl" name="ID_DATEPICKERCTRL1" variable="DatePickerCtrl1" member="yes" />
+									<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL|wxSHAPED</flag>
+									<border>5</border>
+									<option>1</option>
+								</object>
+							</object>
+							<flag>wxEXPAND</flag>
+							<border>5</border>
+						</object>
+						<object class="sizeritem">
+							<object class="wxBoxSizer" variable="BoxSizer5" member="no">
+								<orient>wxVERTICAL</orient>
+								<object class="sizeritem">
+									<object class="wxStaticText" name="ID_STATICTEXT2" variable="StaticText2" member="yes">
+										<label>Label</label>
+									</object>
+									<flag>wxALIGN_LEFT|wxSHAPED</flag>
+									<border>5</border>
+									<option>1</option>
+								</object>
+								<object class="sizeritem">
+									<object class="wxTextCtrl" name="ID_TEXTCTRL1" variable="TextCtrl1" member="yes">
+										<value>Text</value>
+									</object>
+									<flag>wxALL|wxEXPAND</flag>
+									<border>5</border>
+									<option>1</option>
+								</object>
+							</object>
+							<flag>wxEXPAND</flag>
+							<border>5</border>
+							<option>1</option>
+						</object>
+					</object>
+					<flag>wxALL|wxEXPAND</flag>
+					<border>5</border>
+				</object>
+				<object class="sizeritem">
+					<object class="wxBoxSizer" variable="BoxSizer3" member="no">
+						<object class="sizeritem">
+							<object class="wxGrid" name="ID_GRID1" variable="Grid1" member="yes">
+								<cols>4</cols>
+								<rows>1</rows>
+								<labelcolwidth>0</labelcolwidth>
+								<defaultcolsize>150</defaultcolsize>
+								<collabels>
+									<item>CUENTA</item>
+									<item>DESGLOSE</item>
+									<item>DEBE</item>
+									<item>HABER</item>
+								</collabels>
+								<handler function="OnGrid1CellSelect" entry="EVT_CMD_GRID_SELECT_CELL" />
+							</object>
+							<flag>wxALL|wxEXPAND</flag>
+							<border>5</border>
+							<option>1</option>
+						</object>
+					</object>
+					<flag>wxALL|wxEXPAND</flag>
+					<border>5</border>
+					<option>1</option>
+				</object>
+				<object class="sizeritem">
+					<object class="wxStdDialogButtonSizer" variable="StdDialogButtonSizer1" member="no">
+						<object class="button">
+							<object class="wxButton" name="wxID_OK">
+								<label></label>
+							</object>
+						</object>
+						<object class="button">
+							<object class="wxButton" name="wxID_CANCEL">
+								<label></label>
+							</object>
+						</object>
+					</object>
+					<flag>wxALL|wxEXPAND</flag>
+					<border>5</border>
+				</object>
+			</object>
+		</object>
+	</object>
+</wxsmith>

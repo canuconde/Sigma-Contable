@@ -46,6 +46,8 @@
 		</Linker>
 		<Unit filename="LibroDiarioPanel.cpp" />
 		<Unit filename="LibroDiarioPanel.h" />
+		<Unit filename="NuevoAsientoFrame.cpp" />
+		<Unit filename="NuevoAsientoFrame.h" />
 		<Unit filename="PlanCuentasPanel.cpp" />
 		<Unit filename="PlanCuentasPanel.h" />
 		<Unit filename="SigmaContableApp.cpp" />
@@ -69,6 +71,7 @@
 		<Unit filename="src/Registro.cpp" />
 		<Unit filename="src/RegistroDAO.cpp" />
 		<Unit filename="wxsmith/LibroDiarioPanel.wxs" />
+		<Unit filename="wxsmith/NuevoAsientoFrame.wxs" />
 		<Unit filename="wxsmith/PlanCuentasPanel.wxs" />
 		<Unit filename="wxsmith/SigmaContableframe.wxs" />
 		<Extensions>
@@ -79,6 +82,7 @@
 					<wxFrame wxs="wxsmith/SigmaContableframe.wxs" src="SigmaContableMain.cpp" hdr="SigmaContableMain.h" fwddecl="0" i18n="1" name="SigmaContableFrame" language="CPP" />
 					<wxPanel wxs="wxsmith/LibroDiarioPanel.wxs" src="LibroDiarioPanel.cpp" hdr="LibroDiarioPanel.h" fwddecl="0" i18n="1" name="LibroDiarioPanel" language="CPP" />
 					<wxPanel wxs="wxsmith/PlanCuentasPanel.wxs" src="PlanCuentasPanel.cpp" hdr="PlanCuentasPanel.h" fwddecl="0" i18n="1" name="PlanCuentasPanel" language="CPP" />
+					<wxFrame wxs="wxsmith/NuevoAsientoFrame.wxs" src="NuevoAsientoFrame.cpp" hdr="NuevoAsientoFrame.h" fwddecl="0" i18n="1" name="NuevoAsientoFrame" language="CPP" />
 				</resources>
 			</wxsmith>
 		</Extensions>
