@@ -12,6 +12,7 @@
 #include "LibroDiarioPanel.h"
 #include "PlanCuentasPanel.h"
 #include "NuevoAsientoFrame.h"
+#include "NuevaCuentaFrame.h"
 //(*Headers(SigmaContableFrame)
 #include <wx/bitmap.h>
 #include <wx/button.h>
@@ -57,6 +58,7 @@ private:
     void OnButton3Click(wxCommandEvent& event);
     void OnToolBarItem4Clicked(wxCommandEvent& event);
     void OnButton5Click(wxCommandEvent& event);
+    void OnButton6Click(wxCommandEvent& event);
     //*)
 
     //(*Identifiers(SigmaContableFrame)

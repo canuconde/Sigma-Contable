@@ -53,6 +53,7 @@ const wxWindowID SigmaContableFrame::ID_BUTTON5 = wxNewId();
 const wxWindowID SigmaContableFrame::ID_BUTTON1 = wxNewId();
 const wxWindowID SigmaContableFrame::ID_BUTTON2 = wxNewId();
 const wxWindowID SigmaContableFrame::ID_BUTTON3 = wxNewId();
+const wxWindowID SigmaContableFrame::ID_BUTTON6 = wxNewId();
 const wxWindowID SigmaContableFrame::ID_BUTTON4 = wxNewId();
 const wxWindowID SigmaContableFrame::ID_HYPERLINKCTRL1 = wxNewId();
 const wxWindowID SigmaContableFrame::ID_PANEL1 = wxNewId();
@@ -116,6 +117,8 @@ SigmaContableFrame::SigmaContableFrame(wxWindow* parent,wxWindowID id)
     BoxSizer1->Add(Button2, 1, wxALL|wxEXPAND, 5);
     Button3 = new wxButton(Panel1, ID_BUTTON3, _("Plan de Cuentas"), wxDefaultPosition, wxDefaultSize, wxBORDER_NONE, wxDefaultValidator, _T("ID_BUTTON3"));
     BoxSizer1->Add(Button3, 1, wxALL|wxEXPAND, 5);
+    Button6 = new wxButton(Panel1, ID_BUTTON6, _("Nueva Cuenta"), wxDefaultPosition, wxDefaultSize, wxBORDER_NONE, wxDefaultValidator, _T("ID_BUTTON6"));
+    BoxSizer1->Add(Button6, 1, wxALL|wxEXPAND, 5);
     Button4 = new wxButton(Panel1, ID_BUTTON4, _("Balance"), wxDefaultPosition, wxDefaultSize, wxBORDER_NONE, wxDefaultValidator, _T("ID_BUTTON4"));
     BoxSizer1->Add(Button4, 1, wxALL|wxEXPAND, 5);
     BoxSizer1->Add(-1,-1,10, wxALL|wxEXPAND, 5);
@@ -184,6 +187,7 @@ SigmaContableFrame::SigmaContableFrame(wxWindow* parent,wxWindowID id)
     Connect(ID_BUTTON1, wxEVT_COMMAND_BUTTON_CLICKED, (wxObjectEventFunction)&SigmaContableFrame::OnButton1Click);
     Connect(ID_BUTTON2, wxEVT_COMMAND_BUTTON_CLICKED, (wxObjectEventFunction)&SigmaContableFrame::OnButton2Click);
     Connect(ID_BUTTON3, wxEVT_COMMAND_BUTTON_CLICKED, (wxObjectEventFunction)&SigmaContableFrame::OnButton3Click);
+    Connect(ID_BUTTON6, wxEVT_COMMAND_BUTTON_CLICKED, (wxObjectEventFunction)&SigmaContableFrame::OnButton6Click);
     Connect(idMenuQuit, wxEVT_COMMAND_MENU_SELECTED, (wxObjectEventFunction)&SigmaContableFrame::OnQuit);
     Connect(idMenuAbout, wxEVT_COMMAND_MENU_SELECTED, (wxObjectEventFunction)&SigmaContableFrame::OnAbout);
     Connect(ID_TOOLBARITEM4, wxEVT_COMMAND_TOOL_CLICKED, (wxObjectEventFunction)&SigmaContableFrame::OnToolBarItem4Clicked);
@@ -270,5 +274,13 @@ void SigmaContableFrame::OnButton5Click(wxCommandEvent& event)
         wxFrame* nuevoAsiento = new NuevoAsientoFrame(this,lContable);
         nuevoAsiento->GetParent()->Enable(false);
         nuevoAsiento->Show(true);
+        Notebook1->SetSelection(0);
+}
 
+void SigmaContableFrame::OnButton6Click(wxCommandEvent& event)
+{
+        wxFrame* nuevaCuenta = new NuevaCuentaFrame(this,lContable);
+        nuevaCuenta->GetParent()->Enable(false);
+        nuevaCuenta->Show(true);
+        Notebook1->SetSelection(1);
 }
