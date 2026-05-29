@@ -3,32 +3,30 @@
 	<object class="wxFrame" name="NuevoAsientoFrame">
 		<title>Nuevo Asiento</title>
 		<centered>1</centered>
-		<size>640,480</size>
+		<size>800,480</size>
 		<pos_arg>1</pos_arg>
 		<size_arg>1</size_arg>
-		<style>wxDEFAULT_FRAME_STYLE|wxFRAME_FLOAT_ON_PARENT|wxSTAY_ON_TOP</style>
+		<style>wxDEFAULT_FRAME_STYLE|wxFRAME_NO_TASKBAR|wxFRAME_FLOAT_ON_PARENT</style>
 		<object class="wxPanel" name="ID_PANEL1" variable="Panel1" member="yes">
 			<pos>192,176</pos>
 			<object class="wxBoxSizer" variable="BoxSizer1" member="no">
 				<orient>wxVERTICAL</orient>
 				<object class="sizeritem">
 					<object class="wxBoxSizer" variable="BoxSizer2" member="no">
+						<orient>wxVERTICAL</orient>
 						<object class="sizeritem">
 							<object class="wxBoxSizer" variable="BoxSizer4" member="no">
-								<orient>wxVERTICAL</orient>
 								<object class="sizeritem">
 									<object class="wxStaticText" name="ID_STATICTEXT1" variable="StaticText1" member="yes">
-										<label>Label</label>
+										<label>Fecha:</label>
 									</object>
-									<flag>wxALIGN_LEFT</flag>
+									<flag>wxLEFT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 									<border>5</border>
-									<option>1</option>
 								</object>
 								<object class="sizeritem">
 									<object class="wxDatePickerCtrl" name="ID_DATEPICKERCTRL1" variable="DatePickerCtrl1" member="yes" />
-									<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL|wxSHAPED</flag>
+									<flag>wxLEFT|wxALIGN_TOP</flag>
 									<border>5</border>
-									<option>1</option>
 								</object>
 							</object>
 							<flag>wxEXPAND</flag>
@@ -39,24 +37,22 @@
 								<orient>wxVERTICAL</orient>
 								<object class="sizeritem">
 									<object class="wxStaticText" name="ID_STATICTEXT2" variable="StaticText2" member="yes">
-										<label>Label</label>
+										<label>Descripción:</label>
 									</object>
-									<flag>wxALIGN_LEFT|wxSHAPED</flag>
+									<flag>wxLEFT|wxALIGN_LEFT</flag>
 									<border>5</border>
-									<option>1</option>
 								</object>
 								<object class="sizeritem">
 									<object class="wxTextCtrl" name="ID_TEXTCTRL1" variable="TextCtrl1" member="yes">
 										<value>Text</value>
 									</object>
-									<flag>wxALL|wxEXPAND</flag>
+									<flag>wxLEFT|wxRIGHT|wxEXPAND</flag>
 									<border>5</border>
 									<option>1</option>
 								</object>
 							</object>
 							<flag>wxEXPAND</flag>
 							<border>5</border>
-							<option>1</option>
 						</object>
 					</object>
 					<flag>wxALL|wxEXPAND</flag>

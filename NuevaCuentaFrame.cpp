@@ -30,7 +30,7 @@ NuevaCuentaFrame::NuevaCuentaFrame(wxWindow* parent,LibroContable* lContable,wxW
     wxBoxSizer* BoxSizer3;
     wxBoxSizer* BoxSizer4;
 
-    Create(parent, id, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("id"));
+    Create(parent, id, _("Nueva Cuenta"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE|wxFRAME_NO_TASKBAR|wxSTAY_ON_TOP, _T("id"));
     SetClientSize(wxDefaultSize);
     Move(wxDefaultPosition);
     Panel1 = new wxPanel(this, ID_PANEL1, wxPoint(192,248), wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL1"));

@@ -30,24 +30,24 @@ NuevoAsientoFrame::NuevoAsientoFrame(wxWindow* parent,LibroContable* lContable,w
     wxBoxSizer* BoxSizer5;
     wxStdDialogButtonSizer* StdDialogButtonSizer1;
 
-    Create(parent, id, _("Nuevo Asiento"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE|wxFRAME_FLOAT_ON_PARENT|wxSTAY_ON_TOP, _T("id"));
-    SetClientSize(wxSize(640,480));
+    Create(parent, id, _("Nuevo Asiento"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE|wxFRAME_NO_TASKBAR|wxFRAME_FLOAT_ON_PARENT, _T("id"));
+    SetClientSize(wxSize(800,480));
     Move(wxDefaultPosition);
     Panel1 = new wxPanel(this, ID_PANEL1, wxPoint(192,176), wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL1"));
     BoxSizer1 = new wxBoxSizer(wxVERTICAL);
-    BoxSizer2 = new wxBoxSizer(wxHORIZONTAL);
-    BoxSizer4 = new wxBoxSizer(wxVERTICAL);
-    StaticText1 = new wxStaticText(Panel1, ID_STATICTEXT1, _("Label"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT1"));
-    BoxSizer4->Add(StaticText1, 1, wxALIGN_LEFT, 5);
+    BoxSizer2 = new wxBoxSizer(wxVERTICAL);
+    BoxSizer4 = new wxBoxSizer(wxHORIZONTAL);
+    StaticText1 = new wxStaticText(Panel1, ID_STATICTEXT1, _("Fecha:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT1"));
+    BoxSizer4->Add(StaticText1, 0, wxLEFT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     DatePickerCtrl1 = new wxDatePickerCtrl(Panel1, ID_DATEPICKERCTRL1, wxDefaultDateTime, wxDefaultPosition, wxDefaultSize, wxDP_DEFAULT|wxDP_SHOWCENTURY, wxDefaultValidator, _T("ID_DATEPICKERCTRL1"));
-    BoxSizer4->Add(DatePickerCtrl1, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL|wxSHAPED, 5);
+    BoxSizer4->Add(DatePickerCtrl1, 0, wxLEFT|wxALIGN_TOP, 5);
     BoxSizer2->Add(BoxSizer4, 0, wxEXPAND, 5);
     BoxSizer5 = new wxBoxSizer(wxVERTICAL);
-    StaticText2 = new wxStaticText(Panel1, ID_STATICTEXT2, _("Label"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT2"));
-    BoxSizer5->Add(StaticText2, 1, wxALIGN_LEFT|wxSHAPED, 5);
+    StaticText2 = new wxStaticText(Panel1, ID_STATICTEXT2, _("Descripción:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT2"));
+    BoxSizer5->Add(StaticText2, 0, wxLEFT|wxALIGN_LEFT, 5);
     TextCtrl1 = new wxTextCtrl(Panel1, ID_TEXTCTRL1, _("Text"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_TEXTCTRL1"));
-    BoxSizer5->Add(TextCtrl1, 1, wxALL|wxEXPAND, 5);
-    BoxSizer2->Add(BoxSizer5, 1, wxEXPAND, 5);
+    BoxSizer5->Add(TextCtrl1, 1, wxLEFT|wxRIGHT|wxEXPAND, 5);
+    BoxSizer2->Add(BoxSizer5, 0, wxEXPAND, 5);
     BoxSizer1->Add(BoxSizer2, 0, wxALL|wxEXPAND, 5);
     BoxSizer3 = new wxBoxSizer(wxHORIZONTAL);
     Grid1 = new wxGrid(Panel1, ID_GRID1, wxDefaultPosition, wxDefaultSize, 0, _T("ID_GRID1"));
@@ -76,7 +76,7 @@ NuevoAsientoFrame::NuevoAsientoFrame(wxWindow* parent,LibroContable* lContable,w
     //*)
     //Modificamos el estilo del grid
     Grid1->HideRowLabels();
-    Grid1->SetColSize(1,300);
+    Grid1->SetColSize(1,325);
 
     //Creamos atributos de celda
     wxGridCellAttr* attrColumna = new wxGridCellAttr();

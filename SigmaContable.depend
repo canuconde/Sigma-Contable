@@ -1816,7 +1816,7 @@
 	"Cuenta.h"
 	"Asiento.h"
 
-1780080314 /home/canu/SigmaContable/NuevoAsientoFrame.h
+1780091501 /home/canu/SigmaContable/NuevoAsientoFrame.h
 	"LibroContable.h"
 	<wx/datectrl.h>
 	<wx/dateevt.h>
@@ -1846,7 +1846,7 @@
 	"wx/grid.h"
 	"wx/datetime.h"
 
-1780080571 source:/home/canu/SigmaContable/NuevoAsientoFrame.cpp
+1780091487 source:/home/canu/SigmaContable/NuevoAsientoFrame.cpp
 	"NuevoAsientoFrame.h"
 	<wx/button.h>
 	<wx/intl.h>
@@ -1856,7 +1856,7 @@
 	"wx/app.h"
 	"wx/utils.h"
 
-1780083332 source:/home/canu/SigmaContable/NuevaCuentaFrame.cpp
+1780091656 source:/home/canu/SigmaContable/NuevaCuentaFrame.cpp
 	"NuevaCuentaFrame.h"
 	<wx/intl.h>
 	<wx/string.h>

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <wxsmith>
 	<object class="wxFrame" name="NuevaCuentaFrame">
+		<title>Nueva Cuenta</title>
 		<pos_arg>1</pos_arg>
 		<size_arg>1</size_arg>
+		<style>wxDEFAULT_FRAME_STYLE|wxFRAME_NO_TASKBAR|wxSTAY_ON_TOP</style>
 		<object class="wxPanel" name="ID_PANEL1" variable="Panel1" member="yes">
 			<pos>192,248</pos>
 			<object class="wxBoxSizer" variable="BoxSizer1" member="no">
