@@ -1,6 +1,6 @@
 #ifndef LIBRODIARIOPANEL_H
 #define LIBRODIARIOPANEL_H
-
+#include "LibroContable.h"
 //(*Headers(LibroDiarioPanel)
 #include <wx/datectrl.h>
 #include <wx/dateevt.h>
@@ -15,9 +15,10 @@ class LibroDiarioPanel: public wxPanel
 {
     public:
 
-        LibroDiarioPanel(wxWindow* parent,wxWindowID id=wxID_ANY,const wxPoint& pos=wxDefaultPosition,const wxSize& size=wxDefaultSize);
+        LibroDiarioPanel(wxWindow* parent,wxWindowID id=wxID_ANY,const wxPoint& pos=wxDefaultPosition,const wxSize& size=wxDefaultSize, LibroContable* lContable=nullptr);
         virtual ~LibroDiarioPanel();
         void ActualizarLista();
+        LibroContable* lContable;
         //(*Declarations(LibroDiarioPanel)
         wxDatePickerCtrl* DatePickerCtrl1;
         wxDatePickerCtrl* DatePickerCtrl2;

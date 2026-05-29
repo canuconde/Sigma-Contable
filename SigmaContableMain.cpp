@@ -70,6 +70,7 @@ const wxWindowID SigmaContableFrame::idMenuAbout = wxNewId();
 const wxWindowID SigmaContableFrame::ID_STATUSBAR1 = wxNewId();
 const wxWindowID SigmaContableFrame::ID_MESSAGEDIALOG1 = wxNewId();
 const wxWindowID SigmaContableFrame::ID_TOOLBARITEM1 = wxNewId();
+const wxWindowID SigmaContableFrame::ID_TOOLBARITEM4 = wxNewId();
 const wxWindowID SigmaContableFrame::ID_TOOLBARITEM2 = wxNewId();
 const wxWindowID SigmaContableFrame::ID_TOOLBARITEM3 = wxNewId();
 const wxWindowID SigmaContableFrame::ID_TOOLBAR1 = wxNewId();
@@ -118,7 +119,7 @@ SigmaContableFrame::SigmaContableFrame(wxWindow* parent,wxWindowID id)
     Panel1->SetSizer(BoxSizer1);
     Panel2 = new wxPanel(SplitterWindow1, ID_PANEL2, wxPoint(152,176), wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL2"));
     BoxSizer2 = new wxBoxSizer(wxHORIZONTAL);
-    Notebook1 = new wxNotebook(Panel2, ID_NOTEBOOK1, wxDefaultPosition, wxDefaultSize, wxNB_BOTTOM, _T("ID_NOTEBOOK1"));
+    Notebook1 = new wxNotebook(Panel2, ID_NOTEBOOK1, wxDefaultPosition, wxDefaultSize, wxNB_TOP, _T("ID_NOTEBOOK1"));
     BoxSizer2->Add(Notebook1, 1, wxALL|wxEXPAND, 5);
     Panel2->SetSizer(BoxSizer2);
     SplitterWindow1->SplitVertically(Panel1, Panel2);
@@ -165,6 +166,7 @@ SigmaContableFrame::SigmaContableFrame(wxWindow* parent,wxWindowID id)
     MessageDialog1 = new wxMessageDialog(this, _("Sigma Contable Desarrollado por  Sebastian Bergara Conde"), _("Message"), wxOK, wxDefaultPosition);
     ToolBar1 = new wxToolBar(this, ID_TOOLBAR1, wxDefaultPosition, wxDefaultSize, wxTB_HORIZONTAL, _T("ID_TOOLBAR1"));
     ToolBarItem1 = ToolBar1->AddTool(ID_TOOLBARITEM1, _("Nuevo Asiento"), wxArtProvider::GetBitmap(wxART_MAKE_ART_ID_FROM_STR(_T("wxART_NEW")),wxART_TOOLBAR), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
+    ToolBarItem4 = ToolBar1->AddTool(ID_TOOLBARITEM4, _("Actualizar"), wxArtProvider::GetBitmap(wxART_MAKE_ART_ID_FROM_STR(_T("wxART_CDROM")),wxART_TOOLBAR), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
     ToolBarItem2 = ToolBar1->AddTool(ID_TOOLBARITEM2, _("Buscar"), wxArtProvider::GetBitmap(wxART_MAKE_ART_ID_FROM_STR(_T("wxART_FIND")),wxART_TOOLBAR), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
     ToolBarItem3 = ToolBar1->AddTool(ID_TOOLBARITEM3, _("Reportes"), wxArtProvider::GetBitmap(wxART_MAKE_ART_ID_FROM_STR(_T("wxART_EXECUTABLE_FILE")),wxART_TOOLBAR), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
     ToolBar1->Realize();
@@ -178,7 +180,10 @@ SigmaContableFrame::SigmaContableFrame(wxWindow* parent,wxWindowID id)
     Connect(ID_BUTTON3, wxEVT_COMMAND_BUTTON_CLICKED, (wxObjectEventFunction)&SigmaContableFrame::OnButton3Click);
     Connect(idMenuQuit, wxEVT_COMMAND_MENU_SELECTED, (wxObjectEventFunction)&SigmaContableFrame::OnQuit);
     Connect(idMenuAbout, wxEVT_COMMAND_MENU_SELECTED, (wxObjectEventFunction)&SigmaContableFrame::OnAbout);
+    Connect(ID_TOOLBARITEM4, wxEVT_COMMAND_TOOL_CLICKED, (wxObjectEventFunction)&SigmaContableFrame::OnToolBarItem4Clicked);
     //*)
+
+    ActualizarPaneles();
 
 }
 
@@ -189,6 +194,26 @@ SigmaContableFrame::~SigmaContableFrame()
     //*)
 }
 
+void SigmaContableFrame::ActualizarPaneles(){
+    //Primero deberiamos eliminar todo
+    Notebook1->DeleteAllPages();
+
+    //Cargamos los datos de la BD
+    lContable= new LibroContable("SigmaContableDB.scdb");
+
+    //Cargamos panel Libro Diario y lo asignamos al primer notebook
+    libroDiario = new LibroDiarioPanel(Notebook1,wxID_ANY,wxDefaultPosition,wxDefaultSize,lContable);
+    Notebook1->AddPage(libroDiario,"Libro Diario",true);
+
+    //Cargamos panel Cuentas y lo asignamos al notebook
+    planCuentas = new PlanCuentasPanel(Notebook1,wxID_ANY,wxDefaultPosition,wxDefaultSize,lContable);
+    Notebook1->AddPage(planCuentas,"Plande Cuentas",true);
+
+    //Seleccionamos el primer notebook
+    Notebook1->SetSelection(0);
+
+
+}
 void SigmaContableFrame::OnQuit(wxCommandEvent& event)
 {
     Close();
@@ -205,38 +230,13 @@ void SigmaContableFrame::OnAbout(wxCommandEvent& event)
 void SigmaContableFrame::OnButton1Click(wxCommandEvent& event)
 {
 
-    Notebook1->DeleteAllPages();
-
-
-    libro = new LibroDiarioPanel(Notebook1,wxID_ANY,wxDefaultPosition,wxDefaultSize);
-    Notebook1->AddPage(libro,"Libro Diario",true);
-    LibroContable* lContable= new LibroContable("SigmaContableDB.scdb");
-
-    int fila=0;;
-        for(Registro* r : lContable->registros){
-        libro->ListCtrl1->InsertItem(fila,r->getAsientoId());
-
-        libro->ListCtrl1->SetItem(fila,1,std::to_string(r->getCuentaId()));
-        libro->ListCtrl1->SetItem(fila,2,std::to_string(r->getId()));
-        libro->ListCtrl1->SetItem(fila,3,lContable->getNombreCuenta(r->getCuentaId()));
-        libro->ListCtrl1->SetItem(fila,4,r->getNotas());
-        libro->ListCtrl1->SetItem(fila,5,std::to_string(r->getDebe()));
-        libro->ListCtrl1->SetItem(fila,6,std::to_string(r->getHaber()));
-
-        fila++;
-    }
-
-
-
 }
 
 
 
 void SigmaContableFrame::OnButton2Click(wxCommandEvent& event)
 {
-    libro->ListCtrl1->InsertItem(0,"uno");
-    libro->ListCtrl1->SetItem(0,2,"dos",-1);
-    libro->ListCtrl1->SetItemBackgroundColour(0,100);
+
   //  HtmlEasyPrinting1->SetName("Mufa");
   //  HtmlEasyPrinting1->PreviewText("esto es un texto",wxEmptyString);
 
@@ -245,6 +245,11 @@ void SigmaContableFrame::OnButton2Click(wxCommandEvent& event)
 
 void SigmaContableFrame::OnButton3Click(wxCommandEvent& event)
 {
-    PlanCuentasPanel* plancuentas = new PlanCuentasPanel(Notebook1,wxID_ANY,wxDefaultPosition,wxDefaultSize);
-    Notebook1->AddPage(plancuentas,"Plande Cuentas",true);
+
+}
+
+void SigmaContableFrame::OnToolBarItem4Clicked(wxCommandEvent& event)
+{
+    //Actualizamos la BD y Regeneramos paneles
+    ActualizarPaneles();
 }

@@ -572,7 +572,7 @@
 
 1765945870 /usr/include/wx-3.2/wx/gtk/app.h
 
-1779951817 /home/canu/SigmaContable/SigmaContableMain.h
+1780013733 /home/canu/SigmaContable/SigmaContableMain.h
 	"LibroDiarioPanel.h"
 	"PlanCuentasPanel.h"
 	<wx/bitmap.h>
@@ -1432,7 +1432,7 @@
 
 1765945870 /usr/include/wx-3.2/wx/gtk/toolbar.h
 
-1780009637 source:/home/canu/SigmaContable/SigmaContableMain.cpp
+1780013856 source:/home/canu/SigmaContable/SigmaContableMain.cpp
 	"SigmaContableMain.h"
 	<vector>
 	<wx/msgdlg.h>
@@ -1538,12 +1538,13 @@
 	"wx/scrolwin.h"
 	"wx/textctrl.h"
 
-1780002486 source:/home/canu/SigmaContable/LibroDiarioPanel.cpp
+1780012931 source:/home/canu/SigmaContable/LibroDiarioPanel.cpp
 	"LibroDiarioPanel.h"
 	<wx/intl.h>
 	<wx/string.h>
 
-1780002335 /home/canu/SigmaContable/LibroDiarioPanel.h
+1780012750 /home/canu/SigmaContable/LibroDiarioPanel.h
+	"LibroContable.h"
 	<wx/datectrl.h>
 	<wx/dateevt.h>
 	<wx/listctrl.h>
@@ -1552,13 +1553,13 @@
 	<wx/srchctrl.h>
 	<wx/stattext.h>
 
-1779950025 /home/canu/SigmaContable/PlanCuentasPanel.h
-	<wx/treelist.h>
+1780014031 /home/canu/SigmaContable/PlanCuentasPanel.h
+	"LibroContable.h"
 	<wx/listctrl.h>
 	<wx/panel.h>
 	<wx/sizer.h>
 
-1779950040 source:/home/canu/SigmaContable/PlanCuentasPanel.cpp
+1780014000 source:/home/canu/SigmaContable/PlanCuentasPanel.cpp
 	"PlanCuentasPanel.h"
 	<wx/intl.h>
 	<wx/string.h>
@@ -1791,7 +1792,7 @@
 1779995095 /home/canu/SigmaContable/include/RegistroDAO.h
 	<vector>
 
-1780009664 source:/home/canu/SigmaContable/src/LibroContable.cpp
+1780010665 source:/home/canu/SigmaContable/src/LibroContable.cpp
 	"LibroContable.h"
 	"Database.h"
 	"Registro.h"
@@ -1801,7 +1802,7 @@
 	"CuentaDAO.h"
 	"AsientoDAO.h"
 
-1780009452 /home/canu/SigmaContable/include/LibroContable.h
+1780010668 /home/canu/SigmaContable/include/LibroContable.h
 	<string>
 	<vector>
 	"Registro.h"

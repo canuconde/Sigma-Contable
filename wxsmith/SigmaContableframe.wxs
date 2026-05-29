@@ -74,7 +74,7 @@
 				<object class="wxBoxSizer" variable="BoxSizer2" member="no">
 					<object class="sizeritem">
 						<object class="wxNotebook" name="ID_NOTEBOOK1" variable="Notebook1" member="yes">
-							<style>wxNB_BOTTOM</style>
+							<style>wxNB_TOP</style>
 						</object>
 						<flag>wxALL|wxEXPAND</flag>
 						<border>5</border>
@@ -151,6 +151,11 @@
 			<object class="tool" name="ID_TOOLBARITEM1" variable="ToolBarItem1" member="yes">
 				<label>Nuevo Asiento</label>
 				<bitmap stock_id="wxART_NEW" stock_client="wxART_TOOLBAR" />
+			</object>
+			<object class="tool" name="ID_TOOLBARITEM4" variable="ToolBarItem4" member="yes">
+				<label>Actualizar</label>
+				<bitmap stock_id="wxART_CDROM" />
+				<handler function="OnToolBarItem4Clicked" entry="EVT_TOOL" />
 			</object>
 			<object class="tool" name="ID_TOOLBARITEM2" variable="ToolBarItem2" member="yes">
 				<label>Buscar</label>

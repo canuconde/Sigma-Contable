@@ -1,6 +1,6 @@
 #ifndef PLANCUENTASPANEL_H
 #define PLANCUENTASPANEL_H
-#include <wx/treelist.h>
+#include "LibroContable.h"
 //(*Headers(PlanCuentasPanel)
 #include <wx/listctrl.h>
 #include <wx/panel.h>
@@ -11,8 +11,9 @@ class PlanCuentasPanel: public wxPanel
 {
     public:
 
-        PlanCuentasPanel(wxWindow* parent,wxWindowID id=wxID_ANY,const wxPoint& pos=wxDefaultPosition,const wxSize& size=wxDefaultSize);
+        PlanCuentasPanel(wxWindow* parent,wxWindowID id=wxID_ANY,const wxPoint& pos=wxDefaultPosition,const wxSize& size=wxDefaultSize,LibroContable* lContable=nullptr);
         virtual ~PlanCuentasPanel();
+        LibroContable* lContable;
         void Actualizar();
 
         //(*Declarations(PlanCuentasPanel)

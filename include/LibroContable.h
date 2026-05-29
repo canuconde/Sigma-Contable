@@ -14,6 +14,7 @@ class LibroContable
         LibroContable(std::string nombreDB);
         virtual ~LibroContable();
         sqlite3* db;
+        void actualizar();
         std::vector<Cuenta*> cuentas;
         std::vector<Registro*> registros;
         std::vector<Asiento*> asientos;
@@ -21,7 +22,7 @@ class LibroContable
     protected:
 
     private:
-
+        std::string nombreDB;
 };
 
 #endif // LIBROCONTABLE_H

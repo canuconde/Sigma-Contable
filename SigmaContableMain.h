@@ -41,9 +41,10 @@ public:
 
     SigmaContableFrame(wxWindow* parent,wxWindowID id = -1);
     virtual ~SigmaContableFrame();
-    LibroDiarioPanel* libro;
+    LibroDiarioPanel* libroDiario;
     PlanCuentasPanel* planCuentas;
-
+    LibroContable* lContable;
+    void ActualizarPaneles();
 private:
 
     //(*Handlers(SigmaContableFrame)
@@ -52,6 +53,7 @@ private:
     void OnButton1Click(wxCommandEvent& event);
     void OnButton2Click(wxCommandEvent& event);
     void OnButton3Click(wxCommandEvent& event);
+    void OnToolBarItem4Clicked(wxCommandEvent& event);
     //*)
 
     //(*Identifiers(SigmaContableFrame)
@@ -76,6 +78,7 @@ private:
     static const wxWindowID ID_STATUSBAR1;
     static const wxWindowID ID_MESSAGEDIALOG1;
     static const wxWindowID ID_TOOLBARITEM1;
+    static const wxWindowID ID_TOOLBARITEM4;
     static const wxWindowID ID_TOOLBARITEM2;
     static const wxWindowID ID_TOOLBARITEM3;
     static const wxWindowID ID_TOOLBAR1;
@@ -111,6 +114,7 @@ private:
     wxToolBarToolBase* ToolBarItem1;
     wxToolBarToolBase* ToolBarItem2;
     wxToolBarToolBase* ToolBarItem3;
+    wxToolBarToolBase* ToolBarItem4;
     //*)
 
     DECLARE_EVENT_TABLE()
