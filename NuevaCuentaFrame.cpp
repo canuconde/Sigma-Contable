@@ -1,6 +1,7 @@
 #include "NuevaCuentaFrame.h"
 #include  "SigmaContableMain.h"
 #include <wx/valtext.h>
+#include "SigmaContableApp.h"
 
 //(*InternalHeaders(NuevaCuentaFrame)
 #include <wx/intl.h>
@@ -103,9 +104,9 @@ void NuevaCuentaFrame::OnButton1Click(wxCommandEvent& event)
             nombre=TextCtrlNombre->GetValue().ToStdString();
             rubro=ChoiceRubro->GetString(ChoiceRubro->GetSelection()).ToStdString();
             numero=std::stoi(TextCtrlCodigo->GetValue().ToStdString());
-            id=lContable->GuardarCuenta(nombre,"-",rubro,numero);
-            //Llamamos a actualizar en la ventana principal
-            //Necesitamos hacer el cast
+            id= wxGetApp().libroContable->GuardarCuenta(nombre,"-",rubro,numero);
+            // Llamamos a actualizar en la ventana principal
+            // Necesitamos hacer el cast
             // seleccionamos la ficha CUENTAS en el notebook (columna 1)
             dynamic_cast<SigmaContableFrame*>(this->GetParent())->ActualizarPaneles(1);
             // Si se pudo guardar cerramos este frame.
