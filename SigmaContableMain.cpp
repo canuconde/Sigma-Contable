@@ -285,7 +285,7 @@ void SigmaContableFrame::OnButton5Click(wxCommandEvent& event)
 
 void SigmaContableFrame::OnButton6Click(wxCommandEvent& event)
 {
-        wxFrame* nuevaCuenta = new NuevaCuentaFrame(this,lContable);
+        wxFrame* nuevaCuenta = new NuevaCuentaFrame(this);
         nuevaCuenta->GetParent()->Enable(false);
         nuevaCuenta->Show(true);
         Notebook1->SetSelection(1);

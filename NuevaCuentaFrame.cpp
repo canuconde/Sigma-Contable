@@ -24,7 +24,7 @@ BEGIN_EVENT_TABLE(NuevaCuentaFrame,wxFrame)
     //(*EventTable(NuevaCuentaFrame)
     //*)
 END_EVENT_TABLE()
-NuevaCuentaFrame::NuevaCuentaFrame(wxWindow* parent,LibroContable* lContable,wxWindowID id,const wxPoint& pos,const wxSize& size):lContable(lContable)
+NuevaCuentaFrame::NuevaCuentaFrame(wxWindow* parent,wxWindowID id,const wxPoint& pos,const wxSize& size)
 {
     //(*Initialize(NuevaCuentaFrame)
     wxBoxSizer* BoxSizer1;

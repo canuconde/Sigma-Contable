@@ -16,9 +16,8 @@ class NuevaCuentaFrame: public wxFrame
 {
     public:
 
-        NuevaCuentaFrame(wxWindow* parent,LibroContable* lContable,wxWindowID id=wxID_ANY,const wxPoint& pos=wxDefaultPosition,const wxSize& size=wxDefaultSize);
+        NuevaCuentaFrame(wxWindow* parent,wxWindowID id=wxID_ANY,const wxPoint& pos=wxDefaultPosition,const wxSize& size=wxDefaultSize);
         virtual ~NuevaCuentaFrame();
-        LibroContable* lContable;
         //(*Declarations(NuevaCuentaFrame)
         wxButton* Button1;
         wxButton* Button2;
