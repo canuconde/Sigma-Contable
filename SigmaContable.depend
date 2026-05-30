@@ -573,7 +573,7 @@
 
 1765945870 /usr/include/wx-3.2/wx/gtk/app.h
 
-1780083052 /home/canu/SigmaContable/SigmaContableMain.h
+1780105741 /home/canu/SigmaContable/SigmaContableMain.h
 	"LibroDiarioPanel.h"
 	"PlanCuentasPanel.h"
 	"NuevoAsientoFrame.h"
@@ -1435,7 +1435,7 @@
 
 1765945870 /usr/include/wx-3.2/wx/gtk/toolbar.h
 
-1780083332 source:/home/canu/SigmaContable/SigmaContableMain.cpp
+1780105689 source:/home/canu/SigmaContable/SigmaContableMain.cpp
 	"SigmaContableMain.h"
 	<vector>
 	<wx/msgdlg.h>
@@ -1541,7 +1541,7 @@
 	"wx/scrolwin.h"
 	"wx/textctrl.h"
 
-1780070670 source:/home/canu/SigmaContable/LibroDiarioPanel.cpp
+1780120650 source:/home/canu/SigmaContable/LibroDiarioPanel.cpp
 	"LibroDiarioPanel.h"
 	<wx/artprov.h>
 	<wx/bitmap.h>
@@ -1549,7 +1549,7 @@
 	<wx/intl.h>
 	<wx/string.h>
 
-1780019452 /home/canu/SigmaContable/LibroDiarioPanel.h
+1780120740 /home/canu/SigmaContable/LibroDiarioPanel.h
 	"LibroContable.h"
 	<wx/bmpbuttn.h>
 	<wx/button.h>
@@ -1560,14 +1560,21 @@
 	<wx/sizer.h>
 	<wx/stattext.h>
 
-1780079750 /home/canu/SigmaContable/PlanCuentasPanel.h
+1780120650 /home/canu/SigmaContable/PlanCuentasPanel.h
 	"LibroContable.h"
+	<wx/button.h>
+	<wx/choice.h>
 	<wx/listctrl.h>
 	<wx/panel.h>
 	<wx/sizer.h>
+	<wx/splitter.h>
+	<wx/stattext.h>
+	<wx/textctrl.h>
 
-1780082744 source:/home/canu/SigmaContable/PlanCuentasPanel.cpp
+1780122765 source:/home/canu/SigmaContable/PlanCuentasPanel.cpp
 	"PlanCuentasPanel.h"
+	"SigmaContableMain.h"
+	<wx/valtext.h>
 	<wx/intl.h>
 	<wx/string.h>
 
@@ -1760,7 +1767,8 @@
 	"Asiento.h"
 	<sqlite3.h>
 
-1779995044 /home/canu/SigmaContable/include/AsientoDAO.h
+1780103437 /home/canu/SigmaContable/include/AsientoDAO.h
+	"sqlite3.h"
 	<vector>
 
 1779995207 source:/home/canu/SigmaContable/src/Database.cpp
@@ -1782,7 +1790,8 @@
 	"Cuenta.h"
 	<sqlite3.h>
 
-1779995207 /home/canu/SigmaContable/include/CuentaDAO.h
+1780103393 /home/canu/SigmaContable/include/CuentaDAO.h
+	"sqlite3.h"
 	<vector>
 
 1779995305 source:/home/canu/SigmaContable/src/Registro.cpp
@@ -1799,7 +1808,7 @@
 1779995095 /home/canu/SigmaContable/include/RegistroDAO.h
 	<vector>
 
-1780010665 source:/home/canu/SigmaContable/src/LibroContable.cpp
+1780122861 source:/home/canu/SigmaContable/src/LibroContable.cpp
 	"LibroContable.h"
 	"Database.h"
 	"Registro.h"
@@ -1809,12 +1818,13 @@
 	"CuentaDAO.h"
 	"AsientoDAO.h"
 
-1780010668 /home/canu/SigmaContable/include/LibroContable.h
+1780104306 /home/canu/SigmaContable/include/LibroContable.h
 	<string>
 	<vector>
 	"Registro.h"
 	"Cuenta.h"
 	"Asiento.h"
+	"Database.h"
 
 1780091501 /home/canu/SigmaContable/NuevoAsientoFrame.h
 	"LibroContable.h"
@@ -1846,7 +1856,7 @@
 	"wx/grid.h"
 	"wx/datetime.h"
 
-1780091487 source:/home/canu/SigmaContable/NuevoAsientoFrame.cpp
+1780092363 source:/home/canu/SigmaContable/NuevoAsientoFrame.cpp
 	"NuevoAsientoFrame.h"
 	<wx/button.h>
 	<wx/intl.h>
@@ -1856,17 +1866,40 @@
 	"wx/app.h"
 	"wx/utils.h"
 
-1780091656 source:/home/canu/SigmaContable/NuevaCuentaFrame.cpp
+1780117337 source:/home/canu/SigmaContable/NuevaCuentaFrame.cpp
 	"NuevaCuentaFrame.h"
+	"SigmaContableMain.h"
+	<wx/valtext.h>
 	<wx/intl.h>
 	<wx/string.h>
 
-1780082956 /home/canu/SigmaContable/NuevaCuentaFrame.h
+1780105982 /home/canu/SigmaContable/NuevaCuentaFrame.h
 	"LibroContable.h"
 	<wx/button.h>
+	<wx/choice.h>
 	<wx/frame.h>
 	<wx/panel.h>
 	<wx/sizer.h>
 	<wx/stattext.h>
 	<wx/textctrl.h>
+
+1765945870 /usr/include/wx-3.2/wx/combobox.h
+	"wx/defs.h"
+	"wx/textctrl.h"
+	"wx/ctrlsub.h"
+	"wx/textentry.h"
+	"wx/univ/combobox.h"
+	"wx/msw/combobox.h"
+	"wx/motif/combobox.h"
+	"wx/gtk/combobox.h"
+	"wx/gtk1/combobox.h"
+	"wx/osx/combobox.h"
+	"wx/qt/combobox.h"
+
+1765945870 /usr/include/wx-3.2/wx/gtk/combobox.h
+	"wx/choice.h"
+
+1765945870 /usr/include/wx-3.2/wx/valtext.h
+	"wx/defs.h"
+	"wx/validate.h"
 

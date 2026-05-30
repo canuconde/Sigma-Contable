@@ -47,7 +47,7 @@ public:
     PlanCuentasPanel* planCuentas;
     LibroContable* lContable;
 
-    void ActualizarPaneles();
+    void ActualizarPaneles(int col = -1);
 private:
 
     //(*Handlers(SigmaContableFrame)

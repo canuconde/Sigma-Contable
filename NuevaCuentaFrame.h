@@ -1,8 +1,10 @@
 #ifndef NUEVACUENTAFRAME_H
 #define NUEVACUENTAFRAME_H
 #include "LibroContable.h"
+
 //(*Headers(NuevaCuentaFrame)
 #include <wx/button.h>
+#include <wx/choice.h>
 #include <wx/frame.h>
 #include <wx/panel.h>
 #include <wx/sizer.h>
@@ -20,24 +22,24 @@ class NuevaCuentaFrame: public wxFrame
         //(*Declarations(NuevaCuentaFrame)
         wxButton* Button1;
         wxButton* Button2;
+        wxChoice* ChoiceRubro;
         wxPanel* Panel1;
         wxStaticText* StaticText1;
         wxStaticText* StaticText2;
         wxStaticText* StaticText3;
-        wxTextCtrl* TextCtrl1;
-        wxTextCtrl* TextCtrl2;
-        wxTextCtrl* TextCtrl3;
+        wxTextCtrl* TextCtrlCodigo;
+        wxTextCtrl* TextCtrlNombre;
         //*)
 
     protected:
 
         //(*Identifiers(NuevaCuentaFrame)
         static const wxWindowID ID_STATICTEXT1;
-        static const wxWindowID ID_STATICTEXT2;
-        static const wxWindowID ID_STATICTEXT3;
         static const wxWindowID ID_TEXTCTRL1;
+        static const wxWindowID ID_STATICTEXT2;
         static const wxWindowID ID_TEXTCTRL2;
-        static const wxWindowID ID_TEXTCTRL3;
+        static const wxWindowID ID_STATICTEXT3;
+        static const wxWindowID ID_CHOICE1;
         static const wxWindowID ID_BUTTON1;
         static const wxWindowID ID_BUTTON2;
         static const wxWindowID ID_PANEL1;
@@ -46,6 +48,9 @@ class NuevaCuentaFrame: public wxFrame
     private:
 
         //(*Handlers(NuevaCuentaFrame)
+        void OnButton2Click(wxCommandEvent& event);
+        void OnButton1Click(wxCommandEvent& event);
+        void OnTextCtrl1Text(wxCommandEvent& event);
         //*)
 
         DECLARE_EVENT_TABLE()

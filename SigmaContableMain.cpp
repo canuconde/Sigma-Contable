@@ -206,7 +206,7 @@ SigmaContableFrame::~SigmaContableFrame()
     //*)
 }
 
-void SigmaContableFrame::ActualizarPaneles(){
+void SigmaContableFrame::ActualizarPaneles(int col = -1){
     //Primero deberiamos eliminar todo
     Notebook1->DeleteAllPages();
 
@@ -221,9 +221,15 @@ void SigmaContableFrame::ActualizarPaneles(){
     //Cargamos panel Cuentas y lo asignamos al notebook
     planCuentas = new PlanCuentasPanel(Notebook1,lContable,wxID_ANY,wxDefaultPosition,wxDefaultSize);
     Notebook1->AddPage(planCuentas,"Plande Cuentas",true);
+    //Si recibimos una columna la mostramos
+    if(col >= 0){
+        //Seleccionamos el primer notebook
+        Notebook1->SetSelection(col);
+    }else{
+        //Seleccionamos el primer notebook
+        Notebook1->SetSelection(0);
+    }
 
-    //Seleccionamos el primer notebook
-    Notebook1->SetSelection(0);
 
 
 }

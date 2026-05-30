@@ -19,7 +19,9 @@ class LibroDiarioPanel: public wxPanel
         LibroDiarioPanel(wxWindow* parent,wxWindowID id=wxID_ANY,const wxPoint& pos=wxDefaultPosition,const wxSize& size=wxDefaultSize, LibroContable* lContable=nullptr);
         virtual ~LibroDiarioPanel();
         void ActualizarLista();
+
         LibroContable* lContable;
+        wxWindow * parent;
         //(*Declarations(LibroDiarioPanel)
         wxBitmapButton* BitmapButton1;
         wxButton* Button1;

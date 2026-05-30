@@ -1,10 +1,10 @@
 #ifndef ASIENTODAO_H
 #define ASIENTODAO_H
-
+#include "sqlite3.h"
 #include <vector>
 
 class Asiento;
-class sqlite3;
+
 
 class AsientoDAO {
 

@@ -26,7 +26,7 @@ BEGIN_EVENT_TABLE(LibroDiarioPanel,wxPanel)
     //*)
 END_EVENT_TABLE()
 
-LibroDiarioPanel::LibroDiarioPanel(wxWindow* parent,wxWindowID id,const wxPoint& pos,const wxSize& size, LibroContable * lContable):lContable(lContable)
+LibroDiarioPanel::LibroDiarioPanel(wxWindow* parent,wxWindowID id,const wxPoint& pos,const wxSize& size, LibroContable * lContable):lContable(lContable),parent(parent)
 {
     //(*Initialize(LibroDiarioPanel)
     wxBoxSizer* BoxSizer1;

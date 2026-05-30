@@ -22,7 +22,7 @@ LibroContable::~LibroContable()
 /**< Actualizamos desde la bd */
 void LibroContable::actualizar(){
 
-    Database* db = new Database(nombreDB);
+    db = new Database(nombreDB);
     CuentaDAO::cargarCuentas(db->getDB(),cuentas);
     RegistroDAO::cargarRegistros(db->getDB(),registros);
     AsientoDAO::cargarAsientos(db->getDB(),asientos);
@@ -35,3 +35,16 @@ std::string LibroContable::getNombreCuenta(int cuentaId){
     }
     return "";
 }
+//Guardamos una cuenta
+int LibroContable::GuardarCuenta(std::string nombre, std::string desc, std::string rubro, int numero){
+    int id;
+    Cuenta* nueva = new Cuenta(0,nombre,desc,rubro,numero);
+    cuentas.push_back(nueva);
+    CuentaDAO::guardar(db->getDB(),cuentas.back());
+    delete nueva;
+    id=cuentas.back()->getId();
+    //si no se puede guardar lo sacamos del vector
+    if(id==0) cuentas.pop_back();
+    return id;
+}
+
