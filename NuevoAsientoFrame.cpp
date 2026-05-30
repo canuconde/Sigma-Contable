@@ -1,5 +1,5 @@
 #include "NuevoAsientoFrame.h"
-
+#include "SigmaContableApp.h"
 //(*InternalHeaders(NuevoAsientoFrame)
 #include <wx/button.h>
 #include <wx/intl.h>
@@ -20,7 +20,7 @@ BEGIN_EVENT_TABLE(NuevoAsientoFrame,wxFrame)
     //*)
 END_EVENT_TABLE()
 
-NuevoAsientoFrame::NuevoAsientoFrame(wxWindow* parent,LibroContable* lContable,wxWindowID id,const wxPoint& pos,const wxSize& size):lContable(lContable)
+NuevoAsientoFrame::NuevoAsientoFrame(wxWindow* parent,wxWindowID id,const wxPoint& pos,const wxSize& size)
 {
     //(*Initialize(NuevoAsientoFrame)
     wxBoxSizer* BoxSizer1;
@@ -83,7 +83,7 @@ NuevoAsientoFrame::NuevoAsientoFrame(wxWindow* parent,LibroContable* lContable,w
 
     // Definimos las opciones de la lista
     wxArrayString opciones;
-    for(auto c : lContable->cuentas)
+    for(auto c : wxGetApp().libroContable->cuentas)
     {
         opciones.Add(c->getNombre());
     }

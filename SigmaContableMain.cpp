@@ -277,7 +277,7 @@ void SigmaContableFrame::OnToolBarItem4Clicked(wxCommandEvent& event)
 //Nuevo Asiento
 void SigmaContableFrame::OnButton5Click(wxCommandEvent& event)
 {
-        wxFrame* nuevoAsiento = new NuevoAsientoFrame(this,lContable);
+        wxFrame* nuevoAsiento = new NuevoAsientoFrame(this);
         nuevoAsiento->GetParent()->Enable(false);
         nuevoAsiento->Show(true);
         Notebook1->SetSelection(0);

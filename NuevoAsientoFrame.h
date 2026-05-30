@@ -16,9 +16,9 @@ class NuevoAsientoFrame: public wxFrame
 {
     public:
 
-        NuevoAsientoFrame(wxWindow* parent,LibroContable* lContable,wxWindowID id=wxID_ANY,const wxPoint& pos=wxDefaultPosition,const wxSize& size=wxDefaultSize);
+        NuevoAsientoFrame(wxWindow* parent,wxWindowID id=wxID_ANY,const wxPoint& pos=wxDefaultPosition,const wxSize& size=wxDefaultSize);
         virtual ~NuevoAsientoFrame();
-        LibroContable* lContable;
+
         //(*Declarations(NuevoAsientoFrame)
         wxDatePickerCtrl* DatePickerCtrl1;
         wxGrid* Grid1;
