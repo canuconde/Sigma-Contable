@@ -41,10 +41,12 @@ int LibroContable::GuardarCuenta(std::string nombre, std::string desc, std::stri
     Cuenta* nueva = new Cuenta(0,nombre,desc,rubro,numero);
     cuentas.push_back(nueva);
     CuentaDAO::guardar(db->getDB(),cuentas.back());
-    delete nueva;
+
     id=cuentas.back()->getId();
     //si no se puede guardar lo sacamos del vector
     if(id==0) cuentas.pop_back();
     return id;
+    //BUG Corregido el delete nueva; eliminaba tambien la direccion en cuentas.
+    //No hacemos delete nueva; esto lo hacemos en LibroContable
 }
 
