@@ -49,4 +49,27 @@ int LibroContable::GuardarCuenta(std::string nombre, std::string desc, std::stri
     //BUG Corregido el delete nueva; eliminaba tambien la direccion en cuentas.
     //No hacemos delete nueva; esto lo hacemos en LibroContable
 }
+//
+int LibroContable::GuardarAsiento(std::string fecha, std::string comentarios){
+    int id;
+    Asiento nuevo = Asiento(0,fecha,comentarios);
+    asientos.push_back(nuevo);
+    AsientoDAO::guardar(db->getDB(),asientos.back());
 
+    id=asientos.back().getId();
+    //si no se puede guardar lo sacamos del vector
+    if(id==0) asientos.pop_back();
+    return id;
+}
+//
+int LibroContable::GuardarRegistro(int64_t cuentaId, int64_t asientoId, std::string nota,int64_t debe, int64_t haber){
+    int id;
+    Registro nuevo = Registro(0,cuentaId,asientoId,nota,debe,haber);
+    registros.push_back(nuevo);
+    RegistroDAO::guardar(db->getDB(),registros.back());
+
+    id=registros.back().getId();
+    //si no se puede guardar lo sacamos del vector
+    if(id==0) registros.pop_back();
+    return id;
+}

@@ -2,6 +2,7 @@
 #define LIBROCONTABLE_H
 #include <string>
 #include <vector>
+#include <cstdint>
 #include "Registro.h"
 #include "Cuenta.h"
 #include "Asiento.h"
@@ -21,6 +22,8 @@ class LibroContable
         std::string getNombreCuenta(int cuentaId);
 
         int GuardarCuenta(std::string nombre, std::string desc, std::string rubro, int numero);
+        int GuardarAsiento(std::string fecha, std::string comentarios);
+        int GuardarRegistro(int64_t cuentaId, int64_t asientoId, std::string nota,int64_t debe, int64_t haber);
     protected:
 
     private:
