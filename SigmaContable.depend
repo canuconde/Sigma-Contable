@@ -1765,12 +1765,12 @@
 	<string>
 	<cstdint>
 
-1780363655 source:/home/canu/SigmaContable/src/AsientoDAO.cpp
+1780369759 source:/home/canu/SigmaContable/src/AsientoDAO.cpp
 	"AsientoDAO.h"
 	"Asiento.h"
 	<sqlite3.h>
 
-1780363682 /home/canu/SigmaContable/include/AsientoDAO.h
+1780369839 /home/canu/SigmaContable/include/AsientoDAO.h
 	"sqlite3.h"
 	<vector>
 	<cstdint>
@@ -1790,7 +1790,7 @@
 	<string>
 	<cstdint>
 
-1779995207 source:/home/canu/SigmaContable/src/CuentaDAO.cpp
+1780369339 source:/home/canu/SigmaContable/src/CuentaDAO.cpp
 	"CuentaDAO.h"
 	"Cuenta.h"
 	<sqlite3.h>
@@ -1812,7 +1812,7 @@
 	<cstdint>
 	<sqlite3.h>
 
-1780362651 /home/canu/SigmaContable/include/RegistroDAO.h
+1780369861 /home/canu/SigmaContable/include/RegistroDAO.h
 	<vector>
 	<cstdint>
 
