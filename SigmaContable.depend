@@ -1543,7 +1543,7 @@
 	"wx/scrolwin.h"
 	"wx/textctrl.h"
 
-1780363334 source:/home/canu/SigmaContable/LibroDiarioPanel.cpp
+1780370176 source:/home/canu/SigmaContable/LibroDiarioPanel.cpp
 	"LibroDiarioPanel.h"
 	"SigmaContableApp.h"
 	<wx/artprov.h>
@@ -1572,7 +1572,7 @@
 	<wx/stattext.h>
 	<wx/textctrl.h>
 
-1780358830 source:/home/canu/SigmaContable/PlanCuentasPanel.cpp
+1780370232 source:/home/canu/SigmaContable/PlanCuentasPanel.cpp
 	"PlanCuentasPanel.h"
 	"SigmaContableMain.h"
 	"SigmaContableApp.h"
@@ -1765,12 +1765,12 @@
 	<string>
 	<cstdint>
 
-1780369759 source:/home/canu/SigmaContable/src/AsientoDAO.cpp
+1780370943 source:/home/canu/SigmaContable/src/AsientoDAO.cpp
 	"AsientoDAO.h"
 	"Asiento.h"
 	<sqlite3.h>
 
-1780369839 /home/canu/SigmaContable/include/AsientoDAO.h
+1780370870 /home/canu/SigmaContable/include/AsientoDAO.h
 	"sqlite3.h"
 	<vector>
 	<cstdint>
@@ -1790,12 +1790,12 @@
 	<string>
 	<cstdint>
 
-1780369339 source:/home/canu/SigmaContable/src/CuentaDAO.cpp
+1780370735 source:/home/canu/SigmaContable/src/CuentaDAO.cpp
 	"CuentaDAO.h"
 	"Cuenta.h"
 	<sqlite3.h>
 
-1780363901 /home/canu/SigmaContable/include/CuentaDAO.h
+1780370684 /home/canu/SigmaContable/include/CuentaDAO.h
 	"sqlite3.h"
 	<vector>
 	<cstdint>
@@ -1806,17 +1806,16 @@
 1780362286 /home/canu/SigmaContable/include/Registro.h
 	<string>
 
-1780362561 source:/home/canu/SigmaContable/src/RegistroDAO.cpp
+1780370580 source:/home/canu/SigmaContable/src/RegistroDAO.cpp
 	"RegistroDAO.h"
 	"Registro.h"
-	<cstdint>
 	<sqlite3.h>
 
-1780369861 /home/canu/SigmaContable/include/RegistroDAO.h
+1780370966 /home/canu/SigmaContable/include/RegistroDAO.h
 	<vector>
 	<cstdint>
 
-1780165842 source:/home/canu/SigmaContable/src/LibroContable.cpp
+1780370361 source:/home/canu/SigmaContable/src/LibroContable.cpp
 	"LibroContable.h"
 	"Database.h"
 	"Registro.h"
@@ -1826,7 +1825,7 @@
 	"CuentaDAO.h"
 	"AsientoDAO.h"
 
-1780104306 /home/canu/SigmaContable/include/LibroContable.h
+1780370034 /home/canu/SigmaContable/include/LibroContable.h
 	<string>
 	<vector>
 	"Registro.h"
@@ -1863,7 +1862,7 @@
 	"wx/grid.h"
 	"wx/datetime.h"
 
-1780165839 source:/home/canu/SigmaContable/NuevoAsientoFrame.cpp
+1780370200 source:/home/canu/SigmaContable/NuevoAsientoFrame.cpp
 	"NuevoAsientoFrame.h"
 	"SigmaContableApp.h"
 	<wx/button.h>

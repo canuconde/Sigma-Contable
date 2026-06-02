@@ -97,15 +97,15 @@ void LibroDiarioPanel::ActualizarLista(){
     ListCtrl1->SetColumnWidth(6,160);
     /**< Generamos las filas */
     int fila=0;
-    for(Registro* r : wxGetApp().libroContable->registros){
-        ListCtrl1->InsertItem(fila,r->getAsientoId());
-        ListCtrl1->SetItem(fila,1,std::to_string(r->getCuentaId()));
-        ListCtrl1->SetItem(fila,2,std::to_string(r->getId()));
-        ListCtrl1->SetItem(fila,3,wxGetApp().libroContable->getNombreCuenta(r->getCuentaId()));
-        ListCtrl1->SetItem(fila,4,r->getNotas());
-        wxString texto = wxString::Format("%.2ll", r->getDebe());
+    for(Registro r : wxGetApp().libroContable->registros){
+        ListCtrl1->InsertItem(fila,r.getAsientoId());
+        ListCtrl1->SetItem(fila,1,std::to_string(r.getCuentaId()));
+        ListCtrl1->SetItem(fila,2,std::to_string(r.getId()));
+        ListCtrl1->SetItem(fila,3,wxGetApp().libroContable->getNombreCuenta(r.getCuentaId()));
+        ListCtrl1->SetItem(fila,4,r.getNotas());
+        wxString texto = wxString::Format("%.2ll", r.getDebe());
         ListCtrl1->SetItem(fila,5,texto);
-        texto = wxString::Format("%.2ll", r->getHaber());
+        texto = wxString::Format("%.2ll", r.getHaber());
         ListCtrl1->SetItem(fila,6,texto);
         fila++;
     }

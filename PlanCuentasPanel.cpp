@@ -121,11 +121,11 @@ void PlanCuentasPanel::Actualizar(){
 
     /**< Generamos las filas */
     int fila=0;
-    for(Cuenta* r : wxGetApp().libroContable->cuentas){
-        ListCtrl1->InsertItem(fila,std::to_string(r->getId()));
-        ListCtrl1->SetItem(fila,1,std::to_string(r->getNumero()));
-        ListCtrl1->SetItem(fila,2,r->getNombre());
-        ListCtrl1->SetItem(fila,3,r->getRubro());
+    for(Cuenta r : wxGetApp().libroContable->cuentas){
+        ListCtrl1->InsertItem(fila,std::to_string(r.getId()));
+        ListCtrl1->SetItem(fila,1,std::to_string(r.getNumero()));
+        ListCtrl1->SetItem(fila,2,r.getNombre());
+        ListCtrl1->SetItem(fila,3,r.getRubro());
 
         fila++;
     }

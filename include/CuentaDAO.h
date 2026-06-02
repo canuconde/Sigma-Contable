@@ -9,10 +9,10 @@ class Cuenta;
 class CuentaDAO {
 
 public:
-    static void guardar(sqlite3* db, Cuenta* cuenta);
+    static void guardar(sqlite3* db, Cuenta &cuenta);
     static void eliminar(sqlite3* db, int64_t id);
-    static void actualizar(sqlite3* db,Cuenta* cuenta);
-    static void cargarCuentas(sqlite3* db, std::vector<Cuenta*> &cuentas);
+    static void actualizar(sqlite3* db,Cuenta &cuenta);
+    static void cargarCuentas(sqlite3* db, std::vector<Cuenta> &cuentas);
     static std::vector<Cuenta*> cargarTodas(sqlite3* db);
 };
 

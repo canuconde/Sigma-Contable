@@ -3,26 +3,26 @@
 #include <sqlite3.h>
 
 //INSERT
-void RegistroDAO::guardar(sqlite3* db, Registro* registro) {
+void RegistroDAO::guardar(sqlite3* db, Registro& registro) {
     //Preparamos el SQL
     sqlite3_stmt* stmt;
     const char* sql = "INSERT INTO registros(cuenta_id, asiento_id,nota,debe,haber) VALUES( ?, ?, ?, ?, ?);";
     sqlite3_prepare_v2(db, sql, -1, &stmt, nullptr);
     //Asociamos
-    sqlite3_bind_int64(stmt, 1, registro->getCuentaId());
-    sqlite3_bind_int64(stmt, 2, registro->getAsientoId());
-    sqlite3_bind_text(stmt, 3, registro->getNotas().data(),-1,NULL);
-    sqlite3_bind_int64(stmt, 4, registro->getDebe());
-    sqlite3_bind_int64(stmt, 5, registro->getHaber());
+    sqlite3_bind_int64(stmt, 1, registro.getCuentaId());
+    sqlite3_bind_int64(stmt, 2, registro.getAsientoId());
+    sqlite3_bind_text(stmt, 3, registro.getNotas().data(),-1,NULL);
+    sqlite3_bind_int64(stmt, 4, registro.getDebe());
+    sqlite3_bind_int64(stmt, 5, registro.getHaber());
     //Ejecutamos
     sqlite3_step(stmt);
     //Obtenemosel ID
     int64_t id = sqlite3_last_insert_rowid(db);
     //Y lo asigamos al vector
-    registro->setId(id);
+    registro.setId(id);
 }
 //SELECT
-void RegistroDAO::cargarRegistros(sqlite3* db, std::vector<Registro*> &registros){
+void RegistroDAO::cargarRegistros(sqlite3* db, std::vector<Registro> &registros){
 
     sqlite3_stmt* stmt;
     sqlite3_prepare_v2(db,"SELECT id, cuenta_id, asiento_id, nota, debe, haber FROM registros", -1, &stmt, nullptr );
@@ -36,26 +36,26 @@ void RegistroDAO::cargarRegistros(sqlite3* db, std::vector<Registro*> &registros
         std::string nota =(char*)sqlite3_column_text(stmt, 3);
         int64_t debe =sqlite3_column_double(stmt, 4);
         int64_t haber = sqlite3_column_double(stmt, 5);
-        registros.push_back(new Registro(id, cuentaId,asientoId,nota,debe,haber));
+        registros.push_back(Registro(id, cuentaId,asientoId,nota,debe,haber));
     }
 
     sqlite3_finalize(stmt);
 }
 
 //UPDATE
-void RegistroDAO::actualizar(sqlite3* db, Registro* registro)
+void RegistroDAO::actualizar(sqlite3* db, Registro& registro)
 {
     //Preparamos
     sqlite3_stmt* stmt;
     const char* sql = "UPDATE registros SET cuenta_id = ?, asiento_id = ?, nota = ?, debe = ?, haber = ? WHERE id = ?;";
     sqlite3_prepare_v2(db, sql, -1, &stmt, nullptr);
     //asosiamos
-    sqlite3_bind_int64(stmt, 1, registro->getCuentaId());
-    sqlite3_bind_int64(stmt, 2, registro->getAsientoId());
-    sqlite3_bind_text(stmt, 3, registro->getNotas().data(),-1,NULL);
-    sqlite3_bind_int64(stmt, 4, registro->getDebe());
-    sqlite3_bind_int64(stmt, 5, registro->getHaber());
-    sqlite3_bind_int64(stmt, 6, registro->getId());
+    sqlite3_bind_int64(stmt, 1, registro.getCuentaId());
+    sqlite3_bind_int64(stmt, 2, registro.getAsientoId());
+    sqlite3_bind_text(stmt, 3, registro.getNotas().data(),-1,NULL);
+    sqlite3_bind_int64(stmt, 4, registro.getDebe());
+    sqlite3_bind_int64(stmt, 5, registro.getHaber());
+    sqlite3_bind_int64(stmt, 6, registro.getId());
     //ejecutamos
     int rc = sqlite3_step(stmt);
     sqlite3_finalize(stmt);

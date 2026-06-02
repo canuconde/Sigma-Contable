@@ -30,19 +30,19 @@ void LibroContable::actualizar(){
 
 /**< Esto es ineficiente. El nombre de cuenta deberia ser accesible desde Registro */
 std::string LibroContable::getNombreCuenta(int cuentaId){
-    for(Cuenta* c : cuentas){
-        if(c->getId()==cuentaId) return c->getNombre();
+    for(Cuenta c : cuentas){
+        if(c.getId()==cuentaId) return c.getNombre();
     }
     return "";
 }
 //Guardamos una cuenta
 int LibroContable::GuardarCuenta(std::string nombre, std::string desc, std::string rubro, int numero){
     int id;
-    Cuenta* nueva = new Cuenta(0,nombre,desc,rubro,numero);
+    Cuenta nueva = Cuenta(0,nombre,desc,rubro,numero);
     cuentas.push_back(nueva);
     CuentaDAO::guardar(db->getDB(),cuentas.back());
 
-    id=cuentas.back()->getId();
+    id=cuentas.back().getId();
     //si no se puede guardar lo sacamos del vector
     if(id==0) cuentas.pop_back();
     return id;

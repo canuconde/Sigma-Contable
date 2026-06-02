@@ -85,7 +85,7 @@ NuevoAsientoFrame::NuevoAsientoFrame(wxWindow* parent,wxWindowID id,const wxPoin
     wxArrayString opciones;
     for(auto c : wxGetApp().libroContable->cuentas)
     {
-        opciones.Add(c->getNombre());
+        opciones.Add(c.getNombre());
     }
     // Asignamos el Editor de tipo Choice a la columna (el false evita que escriban texto libre)
     attrColumna->SetEditor(new wxGridCellChoiceEditor(opciones, true));
