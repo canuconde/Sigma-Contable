@@ -1,6 +1,6 @@
 #include "RegistroDAO.h"
 #include "Registro.h"
-
+#include <cstdint>
 #include <sqlite3.h>
 
 //INSERT
@@ -10,7 +10,7 @@ void RegistroDAO::guardar(sqlite3* db, Registro* registro) {
     //Ejecutamos
     sqlite3_exec(db,sql.c_str(),nullptr, nullptr, nullptr);
     //Obtenemosel ID
-    int id = sqlite3_last_insert_rowid(db);
+    int64_t id = sqlite3_last_insert_rowid(db);
     //Y lo asigamos al vector
     registro->setId(id);
 }
@@ -26,17 +26,17 @@ void RegistroDAO::cargarRegistros(sqlite3* db, std::vector<Registro*> &registros
 
     while (sqlite3_step(stmt) == SQLITE_ROW) {
 
-        int id =  sqlite3_column_int(stmt, 0);
+        int64_t id =  sqlite3_column_int(stmt, 0);
 
-        int cuentaId =  sqlite3_column_int(stmt, 1);
+        int64_t cuentaId =  sqlite3_column_int(stmt, 1);
 
-        int asientoId =  sqlite3_column_int(stmt, 2);
+        int64_t asientoId =  sqlite3_column_int(stmt, 2);
 
         std::string nota =(char*)sqlite3_column_text(stmt, 3);
 
-        float debe =sqlite3_column_double(stmt, 4);
+        int64_t debe =sqlite3_column_double(stmt, 4);
 
-        float haber = sqlite3_column_double(stmt, 5);
+        int64_t haber = sqlite3_column_double(stmt, 5);
 
         registros.push_back(new Registro(id, cuentaId,asientoId,nota,debe,haber));
     }
@@ -46,7 +46,7 @@ void RegistroDAO::cargarRegistros(sqlite3* db, std::vector<Registro*> &registros
 }
 //FALTA UPDATE
 //DELETE
-void RegistroDAO::eliminar(sqlite3* db, int id) {
+void RegistroDAO::eliminar(sqlite3* db, int64_t id) {
     char *zErrMsg = 0;
         int rc;
     //Preparamos el SQL

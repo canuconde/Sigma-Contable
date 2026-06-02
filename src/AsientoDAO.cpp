@@ -9,7 +9,7 @@ void AsientoDAO::guardar(sqlite3* db, Asiento* asiento) {
     //Ejecutamos
     sqlite3_exec(db,sql.c_str(),nullptr, nullptr, nullptr);
     //Obtenemosel ID
-    int id = sqlite3_last_insert_rowid(db);
+    int64_t id = sqlite3_last_insert_rowid(db);
     //Y lo asigamos al vector
     asiento->setId(id);
 }
@@ -25,7 +25,7 @@ void AsientoDAO::cargarAsientos(sqlite3* db, std::vector<Asiento*> &asientos){
 
     while (sqlite3_step(stmt) == SQLITE_ROW) {
 
-        int id =  sqlite3_column_int(stmt, 0);
+       int64_t id =  sqlite3_column_int(stmt, 0);
 
         std::string fecha =(char*)sqlite3_column_text(stmt, 1);
 
@@ -38,7 +38,7 @@ void AsientoDAO::cargarAsientos(sqlite3* db, std::vector<Asiento*> &asientos){
 
 }
 //DELETE
-void AsientoDAO::eliminar(sqlite3* db, int id) {
+void AsientoDAO::eliminar(sqlite3* db, int64_t id) {
     char *zErrMsg = 0;
     int rc;
     //Preparamos el SQL

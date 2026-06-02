@@ -1,6 +1,6 @@
 #include "Cuenta.h"
 
-Cuenta::Cuenta(int id,std::string nombre, std::string descripcion,std::string rubro , int numero){
+Cuenta::Cuenta(int64_t id,std::string nombre, std::string descripcion,std::string rubro , int64_t numero){
         this->nombre=nombre;
         this->descripcion=descripcion;
         this->id=id;
@@ -20,18 +20,18 @@ std::string Cuenta::getRubro(){
     return rubro;
 }
 
-int Cuenta::getId(){
+int64_t Cuenta::getId(){
     return id;
 }
 
-void Cuenta::setId(int id){
+void Cuenta::setId(int64_t id){
     this->id=id;
 }
 
-int Cuenta::getNumero(){
+int64_t Cuenta::getNumero(){
     return numero;
 }
 
-void Cuenta::setNumero(int numero){
+void Cuenta::setNumero(int64_t numero){
     this->numero=numero;
 }

@@ -1543,7 +1543,7 @@
 	"wx/scrolwin.h"
 	"wx/textctrl.h"
 
-1780358760 source:/home/canu/SigmaContable/LibroDiarioPanel.cpp
+1780363334 source:/home/canu/SigmaContable/LibroDiarioPanel.cpp
 	"LibroDiarioPanel.h"
 	"SigmaContableApp.h"
 	<wx/artprov.h>
@@ -1758,22 +1758,24 @@
 
 1765945870 /usr/include/wx-3.2/wx/generic/hyperlink.h
 
-1779995207 source:/home/canu/SigmaContable/src/Asiento.cpp
+1780363621 source:/home/canu/SigmaContable/src/Asiento.cpp
 	"Asiento.h"
 
-1779995207 /home/canu/SigmaContable/include/Asiento.h
+1780363622 /home/canu/SigmaContable/include/Asiento.h
 	<string>
+	<cstdint>
 
-1779995031 source:/home/canu/SigmaContable/src/AsientoDAO.cpp
+1780363655 source:/home/canu/SigmaContable/src/AsientoDAO.cpp
 	"AsientoDAO.h"
 	"Asiento.h"
 	<sqlite3.h>
 
-1780103437 /home/canu/SigmaContable/include/AsientoDAO.h
+1780363682 /home/canu/SigmaContable/include/AsientoDAO.h
 	"sqlite3.h"
 	<vector>
+	<cstdint>
 
-1779995207 source:/home/canu/SigmaContable/src/Database.cpp
+1780363496 source:/home/canu/SigmaContable/src/Database.cpp
 	"Database.h"
 	<iostream>
 
@@ -1781,34 +1783,38 @@
 	<sqlite3.h>
 	<string>
 
-1779995268 source:/home/canu/SigmaContable/src/Cuenta.cpp
+1780363868 source:/home/canu/SigmaContable/src/Cuenta.cpp
 	"Cuenta.h"
 
-1779995268 /home/canu/SigmaContable/include/Cuenta.h
+1780363868 /home/canu/SigmaContable/include/Cuenta.h
 	<string>
+	<cstdint>
 
 1779995207 source:/home/canu/SigmaContable/src/CuentaDAO.cpp
 	"CuentaDAO.h"
 	"Cuenta.h"
 	<sqlite3.h>
 
-1780103393 /home/canu/SigmaContable/include/CuentaDAO.h
+1780363901 /home/canu/SigmaContable/include/CuentaDAO.h
 	"sqlite3.h"
 	<vector>
+	<cstdint>
 
-1779995305 source:/home/canu/SigmaContable/src/Registro.cpp
+1780362602 source:/home/canu/SigmaContable/src/Registro.cpp
 	"Registro.h"
 
-1779995305 /home/canu/SigmaContable/include/Registro.h
+1780362286 /home/canu/SigmaContable/include/Registro.h
 	<string>
 
-1779995097 source:/home/canu/SigmaContable/src/RegistroDAO.cpp
+1780362561 source:/home/canu/SigmaContable/src/RegistroDAO.cpp
 	"RegistroDAO.h"
 	"Registro.h"
+	<cstdint>
 	<sqlite3.h>
 
-1779995095 /home/canu/SigmaContable/include/RegistroDAO.h
+1780362651 /home/canu/SigmaContable/include/RegistroDAO.h
 	<vector>
+	<cstdint>
 
 1780165842 source:/home/canu/SigmaContable/src/LibroContable.cpp
 	"LibroContable.h"
@@ -1868,7 +1874,7 @@
 	"wx/app.h"
 	"wx/utils.h"
 
-1780165841 source:/home/canu/SigmaContable/NuevaCuentaFrame.cpp
+1780361792 source:/home/canu/SigmaContable/NuevaCuentaFrame.cpp
 	"NuevaCuentaFrame.h"
 	"SigmaContableMain.h"
 	<wx/valtext.h>

@@ -16,7 +16,7 @@ Database::Database(const std::string& nombreDB) {
         "CREATE TABLE IF NOT EXISTS asientos (id INTEGER PRIMARY KEY AUTOINCREMENT,fecha TEXT, comentarios TEXT);"
     );
     Database::ejecutarSql(
-        "CREATE TABLE IF NOT EXISTS registros (id INTEGER PRIMARY KEY AUTOINCREMENT,cuenta_id INTEGER,asiento_id INTEGER,nota TEXT, debe DOUBLE, haber DOUBLE);"
+        "CREATE TABLE IF NOT EXISTS registros (id INTEGER PRIMARY KEY AUTOINCREMENT,cuenta_id INTEGER,asiento_id INTEGER,nota TEXT, debe INTEGER, haber INTEGER);"
     );
 }
 

@@ -26,7 +26,7 @@ void CuentaDAO::cargarCuentas(sqlite3* db, std::vector<Cuenta*> &cuentas){
 
     while (sqlite3_step(stmt) == SQLITE_ROW) {
 
-        int id =  sqlite3_column_int(stmt, 0);
+        int64_t id =  sqlite3_column_int(stmt, 0);
 
         std::string nombre =(char*)sqlite3_column_text(stmt, 1);
 
@@ -72,7 +72,7 @@ void CuentaDAO::actualizar(sqlite3* db, Cuenta* cuenta){
 
 }
 //DELETE
-void CuentaDAO::eliminar(sqlite3* db, int id) {
+void CuentaDAO::eliminar(sqlite3* db, int64_t id) {
     char *zErrMsg = 0;
         int rc;
     //Preparamos el SQL
