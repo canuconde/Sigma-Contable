@@ -9,6 +9,7 @@
 
 #include "SigmaContableApp.h"
 #include "LibroContable.h"
+#include <wx/splash.h>
 #include <string>
 //(*AppHeaders
 #include "SigmaContableMain.h"
@@ -24,7 +25,17 @@ bool SigmaContableApp::OnInit()
     static wxLocale locale;
     // Español Argentina
     locale.Init(wxLANGUAGE_SPANISH_ARGENTINA);
-
+    wxBitmap bitmap;
+    if (bitmap.LoadFile("SigmaContable.png", wxBITMAP_TYPE_PNG))
+    {
+        wxSplashScreen* splash = new wxSplashScreen(bitmap,
+            wxSPLASH_CENTRE_ON_SCREEN|wxSPLASH_TIMEOUT,
+            3000, NULL, -1, wxDefaultPosition, wxDefaultSize,
+            wxFRAME_NO_TASKBAR |
+            wxSTAY_ON_TOP |
+            wxBORDER_NONE);
+    }
+    wxYield();
     //(*AppInitialize
     bool wxsOK = true;
     wxInitAllImageHandlers();
