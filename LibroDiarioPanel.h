@@ -1,6 +1,6 @@
 #ifndef LIBRODIARIOPANEL_H
 #define LIBRODIARIOPANEL_H
-#include "LibroContable.h"
+
 //(*Headers(LibroDiarioPanel)
 #include <wx/bmpbuttn.h>
 #include <wx/button.h>
@@ -16,11 +16,9 @@ class LibroDiarioPanel: public wxPanel
 {
     public:
 
-        LibroDiarioPanel(wxWindow* parent,wxWindowID id=wxID_ANY,const wxPoint& pos=wxDefaultPosition,const wxSize& size=wxDefaultSize, LibroContable* lContable=nullptr);
+        LibroDiarioPanel(wxWindow* parent,wxWindowID id=wxID_ANY,const wxPoint& pos=wxDefaultPosition,const wxSize& size=wxDefaultSize);
         virtual ~LibroDiarioPanel();
         void ActualizarLista();
-
-        LibroContable* lContable;
         wxWindow * parent;
         //(*Declarations(LibroDiarioPanel)
         wxBitmapButton* BitmapButton1;

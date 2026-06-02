@@ -1,5 +1,5 @@
 #include "LibroDiarioPanel.h"
-
+#include "SigmaContableApp.h"
 //(*InternalHeaders(LibroDiarioPanel)
 #include <wx/artprov.h>
 #include <wx/bitmap.h>
@@ -26,7 +26,7 @@ BEGIN_EVENT_TABLE(LibroDiarioPanel,wxPanel)
     //*)
 END_EVENT_TABLE()
 
-LibroDiarioPanel::LibroDiarioPanel(wxWindow* parent,wxWindowID id,const wxPoint& pos,const wxSize& size, LibroContable * lContable):lContable(lContable),parent(parent)
+LibroDiarioPanel::LibroDiarioPanel(wxWindow* parent,wxWindowID id,const wxPoint& pos,const wxSize& size):parent(parent)
 {
     //(*Initialize(LibroDiarioPanel)
     wxBoxSizer* BoxSizer1;
@@ -97,11 +97,11 @@ void LibroDiarioPanel::ActualizarLista(){
     ListCtrl1->SetColumnWidth(6,160);
     /**< Generamos las filas */
     int fila=0;
-    for(Registro* r : lContable->registros){
+    for(Registro* r : wxGetApp().libroContable->registros){
         ListCtrl1->InsertItem(fila,r->getAsientoId());
         ListCtrl1->SetItem(fila,1,std::to_string(r->getCuentaId()));
         ListCtrl1->SetItem(fila,2,std::to_string(r->getId()));
-        ListCtrl1->SetItem(fila,3,lContable->getNombreCuenta(r->getCuentaId()));
+        ListCtrl1->SetItem(fila,3,wxGetApp().libroContable->getNombreCuenta(r->getCuentaId()));
         ListCtrl1->SetItem(fila,4,r->getNotas());
         wxString texto = wxString::Format("%.2f", r->getDebe());
         ListCtrl1->SetItem(fila,5,texto);

@@ -1,5 +1,6 @@
 #include "PlanCuentasPanel.h"
 #include "SigmaContableMain.h"
+#include "SigmaContableApp.h"
 #include <wx/valtext.h>
 //(*InternalHeaders(PlanCuentasPanel)
 #include <wx/intl.h>
@@ -26,7 +27,7 @@ BEGIN_EVENT_TABLE(PlanCuentasPanel,wxPanel)
     //*)
 END_EVENT_TABLE()
 
-PlanCuentasPanel::PlanCuentasPanel(wxWindow* parent, LibroContable * lContable,wxWindowID id,const wxPoint& pos,const wxSize& size):lContable(lContable),parent(parent)
+PlanCuentasPanel::PlanCuentasPanel(wxWindow* parent,wxWindowID id,const wxPoint& pos,const wxSize& size):parent(parent)
 {
     //(*Initialize(PlanCuentasPanel)
     wxBoxSizer* BoxSizer1;
@@ -120,7 +121,7 @@ void PlanCuentasPanel::Actualizar(){
 
     /**< Generamos las filas */
     int fila=0;
-    for(Cuenta* r : lContable->cuentas){
+    for(Cuenta* r : wxGetApp().libroContable->cuentas){
         ListCtrl1->InsertItem(fila,std::to_string(r->getId()));
         ListCtrl1->SetItem(fila,1,std::to_string(r->getNumero()));
         ListCtrl1->SetItem(fila,2,r->getNombre());
@@ -142,7 +143,7 @@ void PlanCuentasPanel::OnButton1Click(wxCommandEvent& event)
             nombre=TextCtrlNombre->GetValue().ToStdString();
             rubro=ChoiceRubro->GetString(ChoiceRubro->GetSelection()).ToStdString();
             numero=std::stoi(TextCtrlCodigo->GetValue().ToStdString());
-            id=lContable->GuardarCuenta(nombre,"-",rubro,numero);
+            id=wxGetApp().libroContable->GuardarCuenta(nombre,"-",rubro,numero);
             //Lo cargamos manualmente en la lista, por alguna razon crashea al actualizar
            if(id!=0){
                 int fila = ListCtrl1->GetItemCount();

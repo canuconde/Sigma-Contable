@@ -13,6 +13,7 @@
 #include "PlanCuentasPanel.h"
 #include "NuevoAsientoFrame.h"
 #include "NuevaCuentaFrame.h"
+
 //(*Headers(SigmaContableFrame)
 #include <wx/bitmap.h>
 #include <wx/button.h>
@@ -29,13 +30,7 @@
 #include <wx/statusbr.h>
 #include <wx/toolbar.h>
 //*)
-/** \brief no sabemos nada
- *
- * \param algo que hace alguna cosa
- * \param
- * \return no retorna nada
- *
- */
+
 
 class SigmaContableFrame: public wxFrame
 {
@@ -45,7 +40,7 @@ public:
     virtual ~SigmaContableFrame();
     LibroDiarioPanel* libroDiario;
     PlanCuentasPanel* planCuentas;
-    LibroContable* lContable;
+
 
     void ActualizarPaneles(int col = -1);
 private:

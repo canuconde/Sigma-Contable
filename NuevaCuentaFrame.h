@@ -1,6 +1,5 @@
 #ifndef NUEVACUENTAFRAME_H
 #define NUEVACUENTAFRAME_H
-#include "LibroContable.h"
 
 //(*Headers(NuevaCuentaFrame)
 #include <wx/button.h>
@@ -18,6 +17,7 @@ class NuevaCuentaFrame: public wxFrame
 
         NuevaCuentaFrame(wxWindow* parent,wxWindowID id=wxID_ANY,const wxPoint& pos=wxDefaultPosition,const wxSize& size=wxDefaultSize);
         virtual ~NuevaCuentaFrame();
+
         //(*Declarations(NuevaCuentaFrame)
         wxButton* Button1;
         wxButton* Button2;

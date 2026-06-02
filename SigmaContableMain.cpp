@@ -210,16 +210,12 @@ void SigmaContableFrame::ActualizarPaneles(int col = -1){
     //Primero deberiamos eliminar todo
     Notebook1->DeleteAllPages();
 
-
-    //Cargamos los datos de la BD
-    lContable= new LibroContable("SigmaContableDB.scdb");
-
     //Cargamos panel Libro Diario y lo asignamos al primer notebook
-    libroDiario = new LibroDiarioPanel(Notebook1,wxID_ANY,wxDefaultPosition,wxDefaultSize,lContable);
+    libroDiario = new LibroDiarioPanel(Notebook1,wxID_ANY,wxDefaultPosition,wxDefaultSize);
     Notebook1->AddPage(libroDiario,"Libro Diario",true);
 
     //Cargamos panel Cuentas y lo asignamos al notebook
-    planCuentas = new PlanCuentasPanel(Notebook1,lContable,wxID_ANY,wxDefaultPosition,wxDefaultSize);
+    planCuentas = new PlanCuentasPanel(Notebook1,wxID_ANY,wxDefaultPosition,wxDefaultSize);
     Notebook1->AddPage(planCuentas,"Plande Cuentas",true);
     //Si recibimos una columna la mostramos
     if(col >= 0){

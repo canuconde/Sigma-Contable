@@ -1,6 +1,6 @@
 #ifndef NUEVOASIENTOFRAME_H
 #define NUEVOASIENTOFRAME_H
-#include "LibroContable.h"
+
 //(*Headers(NuevoAsientoFrame)
 #include <wx/datectrl.h>
 #include <wx/dateevt.h>
