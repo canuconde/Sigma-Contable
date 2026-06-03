@@ -1921,7 +1921,7 @@
 	"wx/frame.h"
 	"wx/timer.h"
 
-1780448542 source:/home/canu/SigmaContable/src/wxWidgets/LibroDiarioPanel.cpp
+1780450024 source:/home/canu/SigmaContable/src/wxWidgets/LibroDiarioPanel.cpp
 	"LibroDiarioPanel.h"
 	"SigmaContableApp.h"
 	<wx/artprov.h>
@@ -2024,7 +2024,7 @@
 	"SigmaContableMain.h"
 	<wx/image.h>
 
-1780373591 source:/home/canu/SigmaContable/src/wxWidgets/SigmaContableMain.cpp
+1780449994 source:/home/canu/SigmaContable/src/wxWidgets/SigmaContableMain.cpp
 	"SigmaContableMain.h"
 	<vector>
 	<wx/msgdlg.h>

@@ -64,14 +64,13 @@ void RegistroDAO::actualizar(sqlite3* db, Registro& registro)
 
 //DELETE
 void RegistroDAO::eliminar(sqlite3* db, int64_t id) {
-    char *zErrMsg = 0;
-        int rc;
     //Preparamos el SQL
-    std::string sql = "DELETE FROM registros WHERE id='"+ std::to_string(id) +"';";
+    sqlite3_stmt* stmt;
+    const char* sql = "DELETE FROM registros WHERE id = ? ;";
+    sqlite3_prepare_v2(db, sql, -1, &stmt, nullptr);
     //Ejecutamos
-    rc=sqlite3_exec(db,sql.c_str(),nullptr, nullptr, nullptr);
-    if( rc!=SQLITE_OK ){
-              fprintf(stderr, "SQL error: %s\n", zErrMsg);
-              sqlite3_free(zErrMsg);
-            }
+    sqlite3_bind_int64(stmt, 1, id);
+    int rc = sqlite3_step(stmt);
+    sqlite3_finalize(stmt);
+    //return rc == SQLITE_DONE;
 }
