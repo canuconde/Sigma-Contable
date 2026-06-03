@@ -87,9 +87,9 @@ void LibroDiarioPanel::ActualizarLista(){
     ListCtrl1->InsertColumn(5,"Debe");
     ListCtrl1->InsertColumn(6,"Haber");
     //Escondemos los ID. Hay otra forma de recuperar ids, pero ahora lo dejo asi
-    ListCtrl1->SetColumnWidth(0,100);
-    ListCtrl1->SetColumnWidth(1,100);
-    ListCtrl1->SetColumnWidth(2,0100);
+    ListCtrl1->SetColumnWidth(0,0);
+    ListCtrl1->SetColumnWidth(1,0);
+    ListCtrl1->SetColumnWidth(2,0);
 
     ListCtrl1->SetColumnWidth(3,320);
     ListCtrl1->SetColumnWidth(4,320);
@@ -97,7 +97,23 @@ void LibroDiarioPanel::ActualizarLista(){
     ListCtrl1->SetColumnWidth(6,160);
     /**< Generamos las filas */
     int fila=0;
-    for(Registro r : wxGetApp().libroContable->registros){
+    int asiento=0;
+    for(const Registro& r : wxGetApp().libroContable->registros){
+        if(r.getAsientoId()!=asiento){ //es un nuevo asiento, asi que lo mostramos
+            asiento=r.getAsientoId();
+            for(const Asiento& a : wxGetApp().libroContable->asientos){
+                if(a.getId()==asiento){
+                    ListCtrl1->InsertItem(fila,""); //Agregamos una fila vacia
+                    fila++;
+                    ListCtrl1->InsertItem(fila,std::to_string(r.getAsientoId()));
+                    ListCtrl1->SetItem(fila,1,std::to_string(r.getCuentaId()));
+                    ListCtrl1->SetItem(fila,2,std::to_string(r.getId()));
+                    ListCtrl1->SetItem(fila,3,a.getFecha());
+                    fila++;
+                }
+            }
+
+        }
         ListCtrl1->InsertItem(fila,std::to_string(r.getAsientoId()));
         ListCtrl1->SetItem(fila,1,std::to_string(r.getCuentaId()));
         ListCtrl1->SetItem(fila,2,std::to_string(r.getId()));

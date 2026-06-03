@@ -4,6 +4,7 @@
 		<title>Sigma Contable v1.0</title>
 		<centered>1</centered>
 		<icon stock_id="wxART_PLUS" stock_client="wxART_FRAME_ICON" />
+		<size>800,600</size>
 		<object class="wxSplitterWindow" name="ID_SPLITTERWINDOW1" variable="SplitterWindow1" member="yes">
 			<sashpos>1</sashpos>
 			<minsize>150</minsize>

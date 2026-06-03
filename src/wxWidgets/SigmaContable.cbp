@@ -57,6 +57,7 @@
 		<Unit filename="../../include/LibroContable.h" />
 		<Unit filename="../../include/Registro.h" />
 		<Unit filename="../../include/RegistroDAO.h" />
+		<Unit filename="../../include/wxLibroDiarioListCtrl.h" />
 		<Unit filename="../Asiento.cpp" />
 		<Unit filename="../AsientoDAO.cpp" />
 		<Unit filename="../Cuenta.cpp" />
@@ -77,6 +78,7 @@
 		<Unit filename="SigmaContableApp.h" />
 		<Unit filename="SigmaContableMain.cpp" />
 		<Unit filename="SigmaContableMain.h" />
+		<Unit filename="wxLibroDiarioListCtrl.cpp" />
 		<Unit filename="wxsmith/LibroDiarioPanel.wxs" />
 		<Unit filename="wxsmith/NuevaCuentaFrame.wxs" />
 		<Unit filename="wxsmith/NuevoAsientoFrame.wxs" />
