@@ -1816,7 +1816,7 @@
 	<vector>
 	<cstdint>
 
-1780370361 source:/home/canu/SigmaContable/src/LibroContable.cpp
+1780443685 source:/home/canu/SigmaContable/src/LibroContable.cpp
 	"LibroContable.h"
 	"Database.h"
 	"Registro.h"
@@ -1826,9 +1826,10 @@
 	"CuentaDAO.h"
 	"AsientoDAO.h"
 
-1780370034 /home/canu/SigmaContable/include/LibroContable.h
+1780443716 /home/canu/SigmaContable/include/LibroContable.h
 	<string>
 	<vector>
+	<cstdint>
 	"Registro.h"
 	"Cuenta.h"
 	"Asiento.h"
@@ -1920,7 +1921,7 @@
 	"wx/frame.h"
 	"wx/timer.h"
 
-1780370176 source:/home/canu/SigmaContable/src/wxWidgets/LibroDiarioPanel.cpp
+1780444793 source:/home/canu/SigmaContable/src/wxWidgets/LibroDiarioPanel.cpp
 	"LibroDiarioPanel.h"
 	"SigmaContableApp.h"
 	<wx/artprov.h>

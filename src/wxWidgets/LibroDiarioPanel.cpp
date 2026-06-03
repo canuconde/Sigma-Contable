@@ -98,15 +98,20 @@ void LibroDiarioPanel::ActualizarLista(){
     /**< Generamos las filas */
     int fila=0;
     for(Registro r : wxGetApp().libroContable->registros){
-        ListCtrl1->InsertItem(fila,r.getAsientoId());
+        ListCtrl1->InsertItem(fila,std::to_string(r.getAsientoId()));
         ListCtrl1->SetItem(fila,1,std::to_string(r.getCuentaId()));
         ListCtrl1->SetItem(fila,2,std::to_string(r.getId()));
         ListCtrl1->SetItem(fila,3,wxGetApp().libroContable->getNombreCuenta(r.getCuentaId()));
         ListCtrl1->SetItem(fila,4,r.getNotas());
-        wxString texto = wxString::Format("%.2ll", r.getDebe());
+
+        double importe = r.getDebe() / 100.0;
+        wxString texto = wxString::Format("$\t\t\t %.2f", importe);
         ListCtrl1->SetItem(fila,5,texto);
-        texto = wxString::Format("%.2ll", r.getHaber());
+
+        importe = r.getHaber() / 100.0;
+        texto = wxString::Format("$\t\t\t %.2f", importe);
         ListCtrl1->SetItem(fila,6,texto);
+
         fila++;
     }
 
