@@ -1791,7 +1791,7 @@
 	<string>
 	<cstdint>
 
-1780370735 source:/home/canu/SigmaContable/src/CuentaDAO.cpp
+1780467295 source:/home/canu/SigmaContable/src/CuentaDAO.cpp
 	"CuentaDAO.h"
 	"Cuenta.h"
 	<sqlite3.h>
@@ -1807,7 +1807,7 @@
 1780362286 /home/canu/SigmaContable/include/Registro.h
 	<string>
 
-1780370989 source:/home/canu/SigmaContable/src/RegistroDAO.cpp
+1780468598 source:/home/canu/SigmaContable/src/RegistroDAO.cpp
 	"RegistroDAO.h"
 	"Registro.h"
 	<sqlite3.h>
@@ -1921,7 +1921,7 @@
 	"wx/frame.h"
 	"wx/timer.h"
 
-1780450024 source:/home/canu/SigmaContable/src/wxWidgets/LibroDiarioPanel.cpp
+1780531439 source:/home/canu/SigmaContable/src/wxWidgets/LibroDiarioPanel.cpp
 	"LibroDiarioPanel.h"
 	"SigmaContableApp.h"
 	<wx/artprov.h>
@@ -1930,7 +1930,7 @@
 	<wx/intl.h>
 	<wx/string.h>
 
-1780358688 /home/canu/SigmaContable/src/wxWidgets/LibroDiarioPanel.h
+1780529232 /home/canu/SigmaContable/src/wxWidgets/LibroDiarioPanel.h
 	<wx/bmpbuttn.h>
 	<wx/button.h>
 	<wx/datectrl.h>
@@ -1961,17 +1961,15 @@
 	<wx/stattext.h>
 	<wx/textctrl.h>
 
-1780359003 /home/canu/SigmaContable/src/wxWidgets/SigmaContableMain.h
+1780534220 /home/canu/SigmaContable/src/wxWidgets/SigmaContableMain.h
 	"LibroDiarioPanel.h"
 	"PlanCuentasPanel.h"
 	"NuevoAsientoFrame.h"
 	"NuevaCuentaFrame.h"
-	<wx/bitmap.h>
 	<wx/button.h>
 	<wx/frame.h>
 	<wx/html/htmprint.h>
 	<wx/hyperlink.h>
-	<wx/image.h>
 	<wx/menu.h>
 	<wx/msgdlg.h>
 	<wx/notebook.h>
@@ -2001,7 +1999,7 @@
 	<wx/stattext.h>
 	<wx/textctrl.h>
 
-1780370200 source:/home/canu/SigmaContable/src/wxWidgets/NuevoAsientoFrame.cpp
+1780532474 source:/home/canu/SigmaContable/src/wxWidgets/NuevoAsientoFrame.cpp
 	"NuevoAsientoFrame.h"
 	"SigmaContableApp.h"
 	<wx/button.h>
@@ -2016,7 +2014,7 @@
 	<wx/intl.h>
 	<wx/string.h>
 
-1780373434 source:/home/canu/SigmaContable/src/wxWidgets/SigmaContableApp.cpp
+1780468675 source:/home/canu/SigmaContable/src/wxWidgets/SigmaContableApp.cpp
 	"SigmaContableApp.h"
 	"LibroContable.h"
 	<wx/splash.h>
@@ -2024,7 +2022,7 @@
 	"SigmaContableMain.h"
 	<wx/image.h>
 
-1780449994 source:/home/canu/SigmaContable/src/wxWidgets/SigmaContableMain.cpp
+1780532576 source:/home/canu/SigmaContable/src/wxWidgets/SigmaContableMain.cpp
 	"SigmaContableMain.h"
 	<vector>
 	<wx/msgdlg.h>
@@ -2040,4 +2038,6 @@
 1780448603 /home/canu/SigmaContable/include/wxLibroDiarioListCtrl.h
 	"wx/list.h"
 	"LibroContable.h"
+
+1780532573 /home/canu/SigmaContable/src/wxWidgets/wximages/SigmaContableMain_Image1_XPM.xpm
 

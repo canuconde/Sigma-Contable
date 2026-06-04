@@ -25,7 +25,7 @@ void RegistroDAO::guardar(sqlite3* db, Registro& registro) {
 void RegistroDAO::cargarRegistros(sqlite3* db, std::vector<Registro> &registros){
 
     sqlite3_stmt* stmt;
-    sqlite3_prepare_v2(db,"SELECT id, cuenta_id, asiento_id, nota, debe, haber FROM registros", -1, &stmt, nullptr );
+    sqlite3_prepare_v2(db,"SELECT id, cuenta_id, asiento_id, nota, debe, haber FROM registros ORDER BY asiento_id ASC", -1, &stmt, nullptr );
     //deberiamos vaciar el vector antes de continuar
     registros.clear();
 

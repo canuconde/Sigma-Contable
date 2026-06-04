@@ -3,7 +3,7 @@
 	<object class="wxFrame" name="SigmaContableFrame">
 		<title>Sigma Contable v1.0</title>
 		<centered>1</centered>
-		<icon stock_id="wxART_PLUS" stock_client="wxART_FRAME_ICON" />
+		<icon>/home/canu/SigmaContable/resources/sigma.ico</icon>
 		<size>800,600</size>
 		<object class="wxSplitterWindow" name="ID_SPLITTERWINDOW1" variable="SplitterWindow1" member="yes">
 			<sashpos>1</sashpos>
@@ -190,6 +190,5 @@
 			</object>
 		</object>
 		<object class="wxHtmlEasyPrinting" variable="HtmlEasyPrinting1" member="yes" />
-		<object class="wxImage" variable="Image1" member="yes" />
 	</object>
 </wxsmith>

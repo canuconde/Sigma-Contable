@@ -28,7 +28,7 @@ void CuentaDAO::cargarCuentas(sqlite3* db, std::vector<Cuenta> &cuentas)
 {
     //Preparamos
     sqlite3_stmt* stmt;
-    sqlite3_prepare_v2(db,"SELECT id, nombre, descripcion, rubro, numero FROM cuentas", -1, &stmt, nullptr );
+    sqlite3_prepare_v2(db,"SELECT id, nombre, descripcion, rubro, numero FROM cuentas ORDER BY rubro ASC", -1, &stmt, nullptr );
     //deberiamos vaciar el vector antes de continuar
     cuentas.clear();
 

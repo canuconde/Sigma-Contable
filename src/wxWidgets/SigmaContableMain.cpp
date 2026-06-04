@@ -15,7 +15,9 @@
 
 //(*InternalHeaders(SigmaContableFrame)
 #include <wx/artprov.h>
+#include <wx/bitmap.h>
 #include <wx/icon.h>
+#include <wx/image.h>
 #include <wx/intl.h>
 #include <wx/string.h>
 //*)
@@ -99,7 +101,7 @@ SigmaContableFrame::SigmaContableFrame(wxWindow* parent,wxWindowID id)
     SetClientSize(wxSize(800,600));
     {
         wxIcon FrameIcon;
-        FrameIcon.CopyFromBitmap(wxArtProvider::GetBitmap(wxART_MAKE_ART_ID_FROM_STR(_T("wxART_PLUS")),wxART_FRAME_ICON));
+        FrameIcon.CopyFromBitmap(wxBitmap(wxImage(_T("/home/canu/SigmaContable/resources/sigma.ico"))));
         SetIcon(FrameIcon);
     }
     SplitterWindow1 = new wxSplitterWindow(this, ID_SPLITTERWINDOW1, wxPoint(216,280), wxSize(10,0), wxSP_3D, _T("ID_SPLITTERWINDOW1"));
@@ -180,8 +182,6 @@ SigmaContableFrame::SigmaContableFrame(wxWindow* parent,wxWindowID id)
     ToolBar1->Realize();
     SetToolBar(ToolBar1);
     HtmlEasyPrinting1 = new wxHtmlEasyPrinting(_T("wxHtmlEasyPrinting"), this);
-    Image1 = new wxImage();
-    Image1_BMP = new wxBitmap();
     Center();
 
     Connect(ID_BUTTON5, wxEVT_COMMAND_BUTTON_CLICKED, (wxObjectEventFunction)&SigmaContableFrame::OnButton5Click);
@@ -193,7 +193,6 @@ SigmaContableFrame::SigmaContableFrame(wxWindow* parent,wxWindowID id)
     Connect(idMenuAbout, wxEVT_COMMAND_MENU_SELECTED, (wxObjectEventFunction)&SigmaContableFrame::OnAbout);
     Connect(ID_TOOLBARITEM4, wxEVT_COMMAND_TOOL_CLICKED, (wxObjectEventFunction)&SigmaContableFrame::OnToolBarItem4Clicked);
     //*)
-
     ActualizarPaneles();
     //Creamos las ventanas ahora
 
@@ -207,28 +206,18 @@ SigmaContableFrame::~SigmaContableFrame()
     //*)
 }
 
-void SigmaContableFrame::ActualizarPaneles(int col = -1){
+void SigmaContableFrame::ActualizarPaneles(int pagina){
     //Primero deberiamos eliminar todo
     Notebook1->DeleteAllPages();
-
-    //Cargamos panel Libro Diario y lo asignamos al primer notebook
+    //Creamos los paneles. Esto parece generar leaks pero no lo hace. DeleteAllPages los destruye.
     libroDiario = new LibroDiarioPanel(Notebook1,wxID_ANY,wxDefaultPosition,wxDefaultSize);
-    Notebook1->AddPage(libroDiario,"Libro Diario",true);
-
-    //Cargamos panel Cuentas y lo asignamos al notebook
     planCuentas = new PlanCuentasPanel(Notebook1,wxID_ANY,wxDefaultPosition,wxDefaultSize);
+    //Cargamos panel Libro Diario y lo asignamos al primer notebook
+    Notebook1->AddPage(libroDiario,"Libro Diario",true);
+    //Cargamos panel Cuentas y lo asignamos al notebook
     Notebook1->AddPage(planCuentas,"Plande Cuentas",true);
     //Si recibimos una columna la mostramos
-    if(col >= 0){
-        //Seleccionamos el primer notebook
-        Notebook1->SetSelection(col);
-    }else{
-        //Seleccionamos el primer notebook
-        Notebook1->SetSelection(0);
-    }
-
-
-
+    Notebook1->SetSelection(pagina);
 }
 void SigmaContableFrame::OnQuit(wxCommandEvent& event)
 {

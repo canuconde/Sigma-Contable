@@ -30,9 +30,10 @@ NuevoAsientoFrame::NuevoAsientoFrame(wxWindow* parent,wxWindowID id,const wxPoin
     wxBoxSizer* BoxSizer5;
     wxStdDialogButtonSizer* StdDialogButtonSizer1;
 
-    Create(parent, id, _("Nuevo Asiento"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE|wxFRAME_NO_TASKBAR|wxFRAME_FLOAT_ON_PARENT, _T("id"));
+    Create(parent, id, _("Nuevo Asiento"), wxDefaultPosition, wxDefaultSize, wxCAPTION|wxDEFAULT_FRAME_STYLE|wxFRAME_NO_TASKBAR|wxFRAME_FLOAT_ON_PARENT, _T("id"));
     SetClientSize(wxSize(800,480));
     Move(wxDefaultPosition);
+    SetFocus();
     Panel1 = new wxPanel(this, ID_PANEL1, wxPoint(192,176), wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL1"));
     BoxSizer1 = new wxBoxSizer(wxVERTICAL);
     BoxSizer2 = new wxBoxSizer(wxVERTICAL);
@@ -73,6 +74,7 @@ NuevoAsientoFrame::NuevoAsientoFrame(wxWindow* parent,wxWindowID id,const wxPoin
     Center();
 
     Connect(ID_GRID1, wxEVT_GRID_SELECT_CELL, (wxObjectEventFunction)&NuevoAsientoFrame::OnGrid1CellSelect);
+    Grid1->Connect(wxEVT_KEY_DOWN, (wxObjectEventFunction)&NuevoAsientoFrame::OnGrid1KeyDown, NULL, this);
     //*)
     //Modificamos el estilo del grid
     Grid1->HideRowLabels();
@@ -80,7 +82,7 @@ NuevoAsientoFrame::NuevoAsientoFrame(wxWindow* parent,wxWindowID id,const wxPoin
 
     //Creamos atributos de celda
     wxGridCellAttr* attrColumna = new wxGridCellAttr();
-
+    wxGridCellAttr* attrColumnaDebe = new wxGridCellAttr();
     // Definimos las opciones de la lista
     wxArrayString opciones;
     for(auto c : wxGetApp().libroContable->cuentas)
@@ -89,8 +91,11 @@ NuevoAsientoFrame::NuevoAsientoFrame(wxWindow* parent,wxWindowID id,const wxPoin
     }
     // Asignamos el Editor de tipo Choice a la columna (el false evita que escriban texto libre)
     attrColumna->SetEditor(new wxGridCellChoiceEditor(opciones, true));
-
+    attrColumnaDebe->SetEditor(new wxGridCellFloatEditor (-1,2,	wxGRID_FLOAT_FORMAT_DEFAULT));
+    attrColumnaDebe->SetAlignment(wxALIGN_RIGHT,wxALIGN_CENTER_VERTICAL);
     Grid1->SetColAttr(0, attrColumna);
+    Grid1->SetColAttr(2,attrColumnaDebe);
+    Grid1->SetColAttr(3,attrColumnaDebe);
     //attrColumna->DecRef(); // No olvidar el DecRef()
 }
 
@@ -103,18 +108,21 @@ NuevoAsientoFrame::~NuevoAsientoFrame()
 
 
 
-//Necesitamos agregar mas filas al precionar ENTER o TAB en el ultimo elemento
-//void NuevoAsientoFrame::OnGrid1KeyDown(wxKeyEvent& event)
-//{
-////    if(event.GetKeyCode()==WXK_TAB){
-////            if(Grid1->GetGridCursorRow()+1==Grid1->GetNumberRows()) Grid1->AppendRows(1,true);
-////    }
-//
-//}
+
+void NuevoAsientoFrame::OnGrid1KeyDown(wxKeyEvent& event)
+{
+    if(event.GetKeyCode()==WXK_TAB && Grid1->GetGridCursorCol()+1==Grid1->GetNumberCols()){
+             Grid1->SetGridCursor(Grid1->GetGridCursorRow()+1,0);
+    }else if(event.GetKeyCode()==WXK_ESCAPE){
+        this->Destroy();
+    }else{
+        event.Skip(true);
+    }
+
+}
 
 void NuevoAsientoFrame::OnGrid1CellSelect(wxGridEvent& event)
 {
-
-            if(Grid1->GetGridCursorRow()+1==Grid1->GetNumberRows()) Grid1->AppendRows(1,true);
-
+    if(Grid1->GetGridCursorRow()+1==Grid1->GetNumberRows()) Grid1->AppendRows(1,true);
+    event.Skip(true);
 }

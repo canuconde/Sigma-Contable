@@ -15,12 +15,10 @@
 #include "NuevaCuentaFrame.h"
 
 //(*Headers(SigmaContableFrame)
-#include <wx/bitmap.h>
 #include <wx/button.h>
 #include <wx/frame.h>
 #include <wx/html/htmprint.h>
 #include <wx/hyperlink.h>
-#include <wx/image.h>
 #include <wx/menu.h>
 #include <wx/msgdlg.h>
 #include <wx/notebook.h>
@@ -42,7 +40,7 @@ public:
     PlanCuentasPanel* planCuentas;
 
 
-    void ActualizarPaneles(int col = -1);
+    void ActualizarPaneles(int pagina = 0);
 private:
 
     //(*Handlers(SigmaContableFrame)
@@ -87,7 +85,6 @@ private:
     //*)
 
     //(*Declarations(SigmaContableFrame)
-    wxBitmap              *Image1_BMP;
     wxButton* Button1;
     wxButton* Button2;
     wxButton* Button3;
@@ -96,7 +93,6 @@ private:
     wxButton* Button6;
     wxHtmlEasyPrinting* HtmlEasyPrinting1;
     wxHyperlinkCtrl* HyperlinkCtrl1;
-    wxImage               *Image1;
     wxMenu* Menu3;
     wxMenu* Menu4;
     wxMenu* Menu5;

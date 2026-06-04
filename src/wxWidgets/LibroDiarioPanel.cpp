@@ -1,5 +1,6 @@
 #include "LibroDiarioPanel.h"
 #include "SigmaContableApp.h"
+
 //(*InternalHeaders(LibroDiarioPanel)
 #include <wx/artprov.h>
 #include <wx/bitmap.h>
@@ -68,6 +69,7 @@ LibroDiarioPanel::LibroDiarioPanel(wxWindow* parent,wxWindowID id,const wxPoint&
 
     Connect(ID_LISTVIEW1, wxEVT_COMMAND_LIST_ITEM_SELECTED, (wxObjectEventFunction)&LibroDiarioPanel::OnListCtrl1ItemSelect);
     //*)
+
     ActualizarLista();
 }
 
@@ -78,6 +80,7 @@ LibroDiarioPanel::~LibroDiarioPanel()
 }
 
 void LibroDiarioPanel::ActualizarLista(){
+    ListCtrl1->Enable(false);
     //Creamos las columnas
     ListCtrl1->InsertColumn(0,"id_asiento");
     ListCtrl1->InsertColumn(1,"id_cuenta");
@@ -130,8 +133,7 @@ void LibroDiarioPanel::ActualizarLista(){
 
         fila++;
     }
-
-
+    ListCtrl1->Enable(true);
 }
 
 void LibroDiarioPanel::OnListCtrl1ItemSelect(wxListEvent& event)
