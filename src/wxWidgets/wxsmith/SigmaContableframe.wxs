@@ -4,7 +4,7 @@
 		<title>Sigma Contable v1.0</title>
 		<centered>1</centered>
 		<icon>/home/canu/SigmaContable/resources/sigma.ico</icon>
-		<size>800,600</size>
+		<size>1024,720</size>
 		<object class="wxSplitterWindow" name="ID_SPLITTERWINDOW1" variable="SplitterWindow1" member="yes">
 			<sashpos>1</sashpos>
 			<minsize>150</minsize>

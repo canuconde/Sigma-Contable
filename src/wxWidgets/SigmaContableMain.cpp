@@ -98,7 +98,7 @@ SigmaContableFrame::SigmaContableFrame(wxWindow* parent,wxWindowID id)
     wxMenuItem* MenuItem2;
 
     Create(parent, id, _("Sigma Contable v1.0"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("id"));
-    SetClientSize(wxSize(800,600));
+    SetClientSize(wxSize(1024,720));
     {
         wxIcon FrameIcon;
         FrameIcon.CopyFromBitmap(wxBitmap(wxImage(_T("/home/canu/SigmaContable/resources/sigma.ico"))));

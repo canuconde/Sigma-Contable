@@ -134,6 +134,7 @@ void LibroDiarioPanel::ActualizarLista(){
         fila++;
     }
     ListCtrl1->Enable(true);
+
 }
 
 void LibroDiarioPanel::OnListCtrl1ItemSelect(wxListEvent& event)
