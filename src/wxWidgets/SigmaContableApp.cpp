@@ -11,6 +11,7 @@
 #include "LibroContable.h"
 #include <wx/splash.h>
 #include <string>
+#include <locale.h>
 //(*AppHeaders
 #include "SigmaContableMain.h"
 #include <wx/image.h>
@@ -21,10 +22,12 @@ wxIMPLEMENT_APP(SigmaContableApp);
 
 bool SigmaContableApp::OnInit()
 {
+    setlocale(LC_ALL, "");
     //Inicializamos Locale
     static wxLocale locale;
-    // Español Argentina
+//    // Español Argentina
     locale.Init(wxLANGUAGE_SPANISH_ARGENTINA);
+    wxInitAllImageHandlers();
 
     wxBitmap bitmap;
     if (bitmap.LoadFile("SigmaContable.png", wxBITMAP_TYPE_PNG))
@@ -33,7 +36,6 @@ bool SigmaContableApp::OnInit()
             wxSPLASH_CENTRE_ON_SCREEN|wxSPLASH_TIMEOUT,
             2000, NULL, -1, wxDefaultPosition, wxDefaultSize,
             wxFRAME_NO_TASKBAR |
-            wxSTAY_ON_TOP |
             wxBORDER_NONE);
     }
     wxYield();

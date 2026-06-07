@@ -1,6 +1,6 @@
 #include "AsientoDAO.h"
 #include "Asiento.h"
-
+#include "sqlite3.h"
 
 //INSERT
 void AsientoDAO::guardar(sqlite3* db, Asiento &asiento) {

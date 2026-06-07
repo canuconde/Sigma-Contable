@@ -101,7 +101,7 @@ SigmaContableFrame::SigmaContableFrame(wxWindow* parent,wxWindowID id)
     SetClientSize(wxSize(1024,720));
     {
         wxIcon FrameIcon;
-        FrameIcon.CopyFromBitmap(wxBitmap(wxImage(_T("/home/canu/SigmaContable/resources/sigma.ico"))));
+        FrameIcon.CopyFromBitmap(wxBitmap(wxImage(_T("sigma.ico"))));
         SetIcon(FrameIcon);
     }
     SplitterWindow1 = new wxSplitterWindow(this, ID_SPLITTERWINDOW1, wxPoint(216,280), wxSize(10,0), wxSP_3D, _T("ID_SPLITTERWINDOW1"));
@@ -193,7 +193,10 @@ SigmaContableFrame::SigmaContableFrame(wxWindow* parent,wxWindowID id)
     Connect(idMenuAbout, wxEVT_COMMAND_MENU_SELECTED, (wxObjectEventFunction)&SigmaContableFrame::OnAbout);
     Connect(ID_TOOLBARITEM4, wxEVT_COMMAND_TOOL_CLICKED, (wxObjectEventFunction)&SigmaContableFrame::OnToolBarItem4Clicked);
     //*)
+    wxString msg = wxbuildinfo(long_f);
+    wxMessageBox(msg, wxString::FromUTF8("Información de la versión"));
     ActualizarPaneles();
+    wxMessageBox(msg, _("Información de la versións"));
     //Creamos las ventanas ahora
 
 

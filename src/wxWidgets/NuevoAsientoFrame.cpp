@@ -120,6 +120,7 @@ NuevoAsientoFrame::NuevoAsientoFrame(wxWindow* parent,wxWindowID id,const wxPoin
     Grid1->SetColAttr(2,attrColumnaDebeHaber);
     attrColumnaDebeHaber->IncRef();
     Grid1->SetColAttr(3,attrColumnaDebeHaber);
+    attrColumnaDebeHaber->IncRef();
     //attrColumna->DecRef();
 }
 

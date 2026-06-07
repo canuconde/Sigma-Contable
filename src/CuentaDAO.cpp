@@ -1,6 +1,6 @@
 #include "CuentaDAO.h"
 #include "Cuenta.h"
-
+#include "sqlite3.h"
 
 //INSERT
 void CuentaDAO::guardar(sqlite3* db, Cuenta &cuenta)

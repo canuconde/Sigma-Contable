@@ -1,7 +1,7 @@
 #ifndef REGISTRO_H
 #define REGISTRO_H
 #include <string>
-
+#include <cstdint>
 class Registro {
 private:
     std::string notas;
