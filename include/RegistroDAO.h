@@ -1,8 +1,9 @@
 #ifndef REGISTRODAO_H
 #define REGISTRODAO_H
-
+#include "sqlite3.h"
 #include <vector>
 #include <cstdint>
+
 class Registro;
 class sqlite3;
 

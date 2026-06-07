@@ -49,7 +49,7 @@ En desarrollo activo.
 ### Linux
 
 ```bash
-g++ *.cpp src/*.cpp src/wxWidgets/*.cpp -o app `wx-config --cxxflags --libs` -lsqlite3 -I include
+g++ src/*.cpp src/wxWidgets/*.cpp -o app `wx-config --cxxflags --libs` -lsqlite3 -I include -fpermissive    
 ```
 
 ## Posibles mejoras futuras

@@ -1,6 +1,6 @@
 #include "RegistroDAO.h"
 #include "Registro.h"
-#include <sqlite3.h>
+
 
 //INSERT
 void RegistroDAO::guardar(sqlite3* db, Registro& registro) {
