@@ -80,6 +80,7 @@ LibroDiarioPanel::~LibroDiarioPanel()
 }
 
 void LibroDiarioPanel::ActualizarLista(){
+    ListCtrl1->Freeze();
     ListCtrl1->Enable(false);
     //Creamos las columnas
     ListCtrl1->InsertColumn(0,"id_asiento");
@@ -134,7 +135,7 @@ void LibroDiarioPanel::ActualizarLista(){
         fila++;
     }
     ListCtrl1->Enable(true);
-
+    ListCtrl1->Thaw();
 }
 
 void LibroDiarioPanel::OnListCtrl1ItemSelect(wxListEvent& event)

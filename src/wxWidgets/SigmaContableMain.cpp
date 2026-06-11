@@ -16,6 +16,7 @@
 //(*InternalHeaders(SigmaContableFrame)
 #include <wx/artprov.h>
 #include <wx/bitmap.h>
+#include <wx/font.h>
 #include <wx/icon.h>
 #include <wx/image.h>
 #include <wx/intl.h>
@@ -51,12 +52,14 @@ wxString wxbuildinfo(wxbuildinfoformat format)
 }
 
 //(*IdInit(SigmaContableFrame)
+const wxWindowID SigmaContableFrame::ID_STATICBITMAP1 = wxNewId();
 const wxWindowID SigmaContableFrame::ID_BUTTON5 = wxNewId();
 const wxWindowID SigmaContableFrame::ID_BUTTON1 = wxNewId();
 const wxWindowID SigmaContableFrame::ID_BUTTON2 = wxNewId();
 const wxWindowID SigmaContableFrame::ID_BUTTON3 = wxNewId();
 const wxWindowID SigmaContableFrame::ID_BUTTON6 = wxNewId();
 const wxWindowID SigmaContableFrame::ID_BUTTON4 = wxNewId();
+const wxWindowID SigmaContableFrame::ID_STATICBITMAP2 = wxNewId();
 const wxWindowID SigmaContableFrame::ID_HYPERLINKCTRL1 = wxNewId();
 const wxWindowID SigmaContableFrame::ID_PANEL1 = wxNewId();
 const wxWindowID SigmaContableFrame::ID_NOTEBOOK1 = wxNewId();
@@ -108,7 +111,12 @@ SigmaContableFrame::SigmaContableFrame(wxWindow* parent,wxWindowID id)
     SplitterWindow1->SetMinimumPaneSize(150);
     SplitterWindow1->SetSashGravity(0.5);
     Panel1 = new wxPanel(SplitterWindow1, ID_PANEL1, wxPoint(234,175), wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL1"));
+    Panel1->SetMinSize(wxSize(200,-1));
+    Panel1->SetForegroundColour(wxColour(63,31,219));
+    Panel1->SetBackgroundColour(wxColour(15,58,115));
     BoxSizer1 = new wxBoxSizer(wxVERTICAL);
+    StaticBitmap1 = new wxStaticBitmap(Panel1, ID_STATICBITMAP1, wxBitmap(wxImage(_T("ui/SigmaContableSmall.png"))), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICBITMAP1"));
+    BoxSizer1->Add(StaticBitmap1, 1, wxALL|wxEXPAND, 5);
     Button5 = new wxButton(Panel1, ID_BUTTON5, _("Nuevo Asiento"), wxDefaultPosition, wxDefaultSize, wxBORDER_NONE, wxDefaultValidator, _T("ID_BUTTON5"));
     Button5->SetToolTip(_("Nuevo"));
     Button5->SetHelpText(_("Asiento"));
@@ -124,7 +132,11 @@ SigmaContableFrame::SigmaContableFrame(wxWindow* parent,wxWindowID id)
     Button4 = new wxButton(Panel1, ID_BUTTON4, _("Balance"), wxDefaultPosition, wxDefaultSize, wxBORDER_NONE, wxDefaultValidator, _T("ID_BUTTON4"));
     BoxSizer1->Add(Button4, 1, wxALL|wxEXPAND, 5);
     BoxSizer1->Add(-1,-1,10, wxALL|wxEXPAND, 5);
+    StaticBitmap2 = new wxStaticBitmap(Panel1, ID_STATICBITMAP2, wxBitmap(wxImage(_T("ui/bar.png"))), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICBITMAP2"));
+    BoxSizer1->Add(StaticBitmap2, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     HyperlinkCtrl1 = new wxHyperlinkCtrl(Panel1, ID_HYPERLINKCTRL1, _("CanuConde@2026"), _("https://canuconde.github.io"), wxDefaultPosition, wxDefaultSize, wxHL_CONTEXTMENU|wxHL_ALIGN_CENTRE, _T("ID_HYPERLINKCTRL1"));
+    wxFont HyperlinkCtrl1Font(10,wxFONTFAMILY_SWISS,wxFONTSTYLE_NORMAL,wxFONTWEIGHT_NORMAL,false,_T("Arial"),wxFONTENCODING_DEFAULT);
+    HyperlinkCtrl1->SetFont(HyperlinkCtrl1Font);
     BoxSizer1->Add(HyperlinkCtrl1, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     Panel1->SetSizer(BoxSizer1);
     Panel2 = new wxPanel(SplitterWindow1, ID_PANEL2, wxPoint(152,176), wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL2"));
@@ -174,7 +186,7 @@ SigmaContableFrame::SigmaContableFrame(wxWindow* parent,wxWindowID id)
     StatusBar1->SetStatusStyles(1,__wxStatusBarStyles_1);
     SetStatusBar(StatusBar1);
     MessageDialog1 = new wxMessageDialog(this, _("Sigma Contable Desarrollado por  Sebastian Bergara Conde"), _("Message"), wxOK, wxDefaultPosition);
-    ToolBar1 = new wxToolBar(this, ID_TOOLBAR1, wxDefaultPosition, wxDefaultSize, wxTB_HORIZONTAL, _T("ID_TOOLBAR1"));
+    ToolBar1 = new wxToolBar(this, ID_TOOLBAR1, wxDefaultPosition, wxDefaultSize, wxTB_HORIZONTAL|wxTB_TEXT, _T("ID_TOOLBAR1"));
     ToolBarItem1 = ToolBar1->AddTool(ID_TOOLBARITEM1, _("Nuevo Asiento"), wxArtProvider::GetBitmap(wxART_MAKE_ART_ID_FROM_STR(_T("wxART_NEW")),wxART_TOOLBAR), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
     ToolBarItem4 = ToolBar1->AddTool(ID_TOOLBARITEM4, _("Actualizar"), wxArtProvider::GetBitmap(wxART_MAKE_ART_ID_FROM_STR(_T("wxART_CDROM")),wxART_TOOLBAR), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
     ToolBarItem2 = ToolBar1->AddTool(ID_TOOLBARITEM2, _("Buscar"), wxArtProvider::GetBitmap(wxART_MAKE_ART_ID_FROM_STR(_T("wxART_FIND")),wxART_TOOLBAR), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
@@ -193,11 +205,8 @@ SigmaContableFrame::SigmaContableFrame(wxWindow* parent,wxWindowID id)
     Connect(idMenuAbout, wxEVT_COMMAND_MENU_SELECTED, (wxObjectEventFunction)&SigmaContableFrame::OnAbout);
     Connect(ID_TOOLBARITEM4, wxEVT_COMMAND_TOOL_CLICKED, (wxObjectEventFunction)&SigmaContableFrame::OnToolBarItem4Clicked);
     //*)
-    wxString msg = wxbuildinfo(long_f);
-    wxMessageBox(msg, wxString::FromUTF8("Información de la versión"));
+
     ActualizarPaneles();
-    wxMessageBox(msg, _("Información de la versións"));
-    //Creamos las ventanas ahora
 
 
 }

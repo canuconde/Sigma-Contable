@@ -26,7 +26,9 @@ bool SigmaContableApp::OnInit()
     //Inicializamos Locale
     static wxLocale locale;
 //    // Español Argentina
-    locale.Init(wxLANGUAGE_SPANISH_ARGENTINA);
+    //locale.Init(wxLANGUAGE_SPANISH_ARGENTINA);
+   locale.Init(wxLANGUAGE_DEFAULT);
+
     wxInitAllImageHandlers();
 
     wxBitmap bitmap;

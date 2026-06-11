@@ -25,6 +25,7 @@
 #include <wx/panel.h>
 #include <wx/sizer.h>
 #include <wx/splitter.h>
+#include <wx/statbmp.h>
 #include <wx/statusbr.h>
 #include <wx/toolbar.h>
 //*)
@@ -55,12 +56,14 @@ private:
     //*)
 
     //(*Identifiers(SigmaContableFrame)
+    static const wxWindowID ID_STATICBITMAP1;
     static const wxWindowID ID_BUTTON5;
     static const wxWindowID ID_BUTTON1;
     static const wxWindowID ID_BUTTON2;
     static const wxWindowID ID_BUTTON3;
     static const wxWindowID ID_BUTTON6;
     static const wxWindowID ID_BUTTON4;
+    static const wxWindowID ID_STATICBITMAP2;
     static const wxWindowID ID_HYPERLINKCTRL1;
     static const wxWindowID ID_PANEL1;
     static const wxWindowID ID_NOTEBOOK1;
@@ -109,6 +112,8 @@ private:
     wxPanel* Panel1;
     wxPanel* Panel2;
     wxSplitterWindow* SplitterWindow1;
+    wxStaticBitmap* StaticBitmap1;
+    wxStaticBitmap* StaticBitmap2;
     wxStatusBar* StatusBar1;
     wxToolBar* ToolBar1;
     wxToolBarToolBase* ToolBarItem1;

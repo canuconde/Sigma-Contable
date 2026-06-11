@@ -35,9 +35,17 @@ std::string LibroContable::getNombreCuenta(int cuentaId){
     }
     return "";
 }
+// en algun momento tendré que cambiar esto
+int64_t LibroContable::getIDCuenta(const std::string& cuentaNombre){
+    for(Cuenta c : cuentas){
+        if(c.getNombre()==cuentaNombre) return c.getId();
+    }
+    return -1;
+}
 //Guardamos una cuenta
 int LibroContable::GuardarCuenta(std::string nombre, std::string desc, std::string rubro, int numero){
     int id;
+
     Cuenta nueva = Cuenta(0,nombre,desc,rubro,numero);
     cuentas.push_back(nueva);
     CuentaDAO::guardar(db->getDB(),cuentas.back());

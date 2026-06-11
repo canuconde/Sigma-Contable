@@ -122,6 +122,8 @@ NuevoAsientoFrame::NuevoAsientoFrame(wxWindow* parent,wxWindowID id,const wxPoin
     Grid1->SetColAttr(3,attrColumnaDebeHaber);
     attrColumnaDebeHaber->IncRef();
     //attrColumna->DecRef();
+    Grid1->SetCellValue(0,2,"0.00");
+    Grid1->SetCellValue(0,3,"0.00");
 }
 
 NuevoAsientoFrame::~NuevoAsientoFrame()
@@ -145,6 +147,8 @@ void NuevoAsientoFrame::OnGrid1KeyDown(wxKeyEvent& event)
 void NuevoAsientoFrame::OnGrid1CellSelect(wxGridEvent& event)
 {   //Agregamos nuevas filas
     if(Grid1->GetGridCursorRow()+1==Grid1->GetNumberRows()) Grid1->AppendRows(1,true);
+    Grid1->SetCellValue(Grid1->GetNumberRows()-1,2,"0.00");
+    Grid1->SetCellValue(Grid1->GetNumberRows()-1,3,"0.00");
     event.Skip(true);
 }
 
@@ -155,6 +159,7 @@ void NuevoAsientoFrame::OnButtonCancelarClick(wxCommandEvent& event)
 
 void NuevoAsientoFrame::OnButtonGuardarClick(wxCommandEvent& event)
 {
+
     if (!DatePickerCtrl1->GetValue().IsValid())
     {
         MessageDialog1->Show();
@@ -166,15 +171,32 @@ void NuevoAsientoFrame::OnButtonGuardarClick(wxCommandEvent& event)
         TextCtrl1->SetFocus();
         return;
     }
-    int asientoID=wxGetApp().libroContable->GuardarAsiento(DatePickerCtrl1->GetValue().FormatISODate().ToStdString(),TextCtrl1->GetValue().ToStdString());
+
+    std::string fechaAsiento, descripcionAsiento;
+    fechaAsiento=DatePickerCtrl1->GetValue().FormatISODate().ToStdString();
+    descripcionAsiento=TextCtrl1->GetValue().ToStdString();
+    int64_t asientoID=wxGetApp().libroContable->GuardarAsiento(fechaAsiento,descripcionAsiento);
+
     int filas = Grid1->GetNumberRows();
     for(int f=0;f<filas;f++){
-            if(Grid1->GetCellValue(f,2).IsEmpty() && !Grid1->GetCellValue(f,0).IsEmpty()){
-                Grid1->SetGridCursor(f,2);
-                Grid1->SetFocus();
-                MessageDialog1->ShowModal();
+            int64_t  rCuentaId,rDebe=0,rHaber=0;
+            double doubleDebe, doubleHaber;
+            std::string rDescripcion;
+            if((!Grid1->GetCellValue(f,2).IsEmpty() || !Grid1->GetCellValue(f,3).IsEmpty())
+                        && !Grid1->GetCellValue(f,0).IsEmpty()){
+
+               rCuentaId=wxGetApp().libroContable->getIDCuenta(Grid1->GetCellValue(f,0).ToStdString());
+               rDescripcion=Grid1->GetCellValue(f,1).ToStdString();
+               Grid1->GetCellValue(f,2).ToDouble(&doubleDebe);
+                Grid1->GetCellValue(f,3).ToDouble(&doubleHaber);
+                rDebe=static_cast<int64_t>(doubleDebe*100);
+                rHaber=static_cast<int64_t>(doubleHaber*100);
+
+                wxGetApp().libroContable->GuardarRegistro(rCuentaId,asientoID,rDescripcion,rDebe,rHaber);
+
+            }else{
                 return;
             }
-        wxGetApp().libroContable->GuardarRegistro(1,asientoID,"-",2,2);
+
     }
 }

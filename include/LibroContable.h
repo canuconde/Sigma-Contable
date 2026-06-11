@@ -20,6 +20,7 @@ class LibroContable
         std::vector<Registro> registros;
         std::vector<Asiento> asientos;
         std::string getNombreCuenta(int cuentaId);
+        int64_t getIDCuenta(const std::string& cuentaNombre);
 
         int GuardarCuenta(std::string nombre, std::string desc, std::string rubro, int numero);
         int GuardarAsiento(std::string fecha, std::string comentarios);
